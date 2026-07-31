@@ -18,7 +18,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Repository laden
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Taskrabbit-Daten prüfen
         run: node scripts/update-taskrabbit-stats.mjs
