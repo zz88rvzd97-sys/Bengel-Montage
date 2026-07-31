@@ -41,11 +41,14 @@
       "taskrabbit.eyebrow": "Also on Taskrabbit",
       "taskrabbit.title": "Taskrabbit is an additional booking option.",
       "taskrabbit.text": "If you prefer booking through Taskrabbit, you can find my profile there with the prices and booking flow shown by Taskrabbit. Prices on Taskrabbit are usually higher because Taskrabbit includes its own platform and service fees. Direct requests by phone, WhatsApp or email are estimated separately.",
-      "taskrabbit.fact1": "Additional booking option",
-      "taskrabbit.fact2": "4.9 / 5 from 16 reviews",
-      "taskrabbit.fact3": "Tasker since 2021",
-      "taskrabbit.fact4": "Furniture assembly & wall mounting",
-      "taskrabbit.card": "Open Taskrabbit profile",
+      "taskrabbit.fact1": "21 tasks completed",
+      "taskrabbit.fact2": "Furniture assembly",
+      "taskrabbit.fact3": "Wall mounting",
+      "taskrabbit.profile": "Taskrabbit profile",
+      "taskrabbit.reviews": "16 reviews",
+      "taskrabbit.since": "Tasker since 2021",
+      "taskrabbit.tasks": "21 tasks completed",
+      "taskrabbit.card": "Profile & reviews",
       "price.eyebrow": "Request & pricing",
       "price.title": "Fairly calculated by effort, scope and distance.",
       "price.text": "Small jobs can often be billed by time. If the job can be described clearly, a fixed-price offer may also be possible - for example for several wardrobes or a complete furniture package.",
@@ -103,9 +106,59 @@
 
   const original = {};
   const elements = Array.from(document.querySelectorAll("[data-i18n]"));
+  let taskrabbitStats = {
+    rating: 4.9,
+    reviewCount: 16,
+    taskCount: 21
+  };
+
   elements.forEach((element) => {
     original[element.dataset.i18n] = element.innerHTML;
   });
+
+  function formatRating(rating, language) {
+    return Number(rating).toFixed(1).replace(".", language === "en" ? "." : ",");
+  }
+
+  function renderTaskrabbitStats(language) {
+    const rating = formatRating(taskrabbitStats.rating, language);
+    const reviewLabel = language === "en"
+      ? `${taskrabbitStats.reviewCount} reviews`
+      : `${taskrabbitStats.reviewCount} Bewertungen`;
+    const taskLabel = language === "en"
+      ? `${taskrabbitStats.taskCount} tasks completed`
+      : `${taskrabbitStats.taskCount} Tasks insgesamt`;
+    const accessibleLabel = language === "en"
+      ? `Overall rating ${rating} out of 5 stars from ${taskrabbitStats.reviewCount} reviews`
+      : `Gesamtbewertung ${rating} von 5 Sternen aus ${taskrabbitStats.reviewCount} Bewertungen`;
+
+    document.querySelectorAll("[data-taskrabbit-rating]").forEach((element) => {
+      element.textContent = rating;
+    });
+    document.querySelectorAll(".taskrabbit-stars").forEach((element) => {
+      const percentage = Math.max(0, Math.min(100, (taskrabbitStats.rating / 5) * 100));
+      element.style.setProperty("--rating-percentage", `${percentage}%`);
+    });
+    document.querySelectorAll("[data-taskrabbit-reviews]").forEach((element) => {
+      element.textContent = reviewLabel;
+    });
+    document.querySelectorAll("[data-taskrabbit-tasks]").forEach((element) => {
+      element.textContent = taskLabel;
+    });
+
+    const ratingElement = document.querySelector(".taskrabbit-rating");
+    if (ratingElement) ratingElement.setAttribute("aria-label", accessibleLabel);
+
+    const profileLink = document.querySelector(".taskrabbit-card");
+    if (profileLink) {
+      profileLink.setAttribute(
+        "aria-label",
+        language === "en"
+          ? `Open Benjamin-Brian E.'s Taskrabbit profile. ${accessibleLabel}.`
+          : `Taskrabbit-Profil von Benjamin-Brian E. öffnen. ${accessibleLabel}.`
+      );
+    }
+  }
 
   function setLanguage(language) {
     const html = document.documentElement;
@@ -138,9 +191,41 @@
       const localizedHref = language === "en" ? link.dataset.hrefEn : link.dataset.hrefDe;
       if (localizedHref) link.href = localizedHref;
     });
+
+    renderTaskrabbitStats(language);
   }
 
   document.querySelectorAll(".lang-switch button").forEach((button) => {
     button.addEventListener("click", () => setLanguage(button.dataset.lang || "de"));
   });
+
+  const statsUrl = "https://raw.githubusercontent.com/zz88rvzd97-sys/Bengel-Montage/main/assets/taskrabbit-stats.json";
+  const hourlyCacheKey = Math.floor(Date.now() / 3600000);
+  fetch(`${statsUrl}?v=${hourlyCacheKey}`, { cache: "no-store" })
+    .then((response) => {
+      if (!response.ok) throw new Error("Taskrabbit statistics unavailable");
+      return response.json();
+    })
+    .then((stats) => {
+      const rating = Number(stats.rating);
+      const reviewCount = Number(stats.reviewCount);
+      const taskCount = Number(stats.taskCount);
+      if (
+        !Number.isFinite(rating) ||
+        rating < 0 ||
+        rating > 5 ||
+        !Number.isInteger(reviewCount) ||
+        reviewCount < 0 ||
+        !Number.isInteger(taskCount) ||
+        taskCount < 0
+      ) {
+        throw new Error("Invalid Taskrabbit statistics");
+      }
+
+      taskrabbitStats = { rating, reviewCount, taskCount };
+      renderTaskrabbitStats(document.documentElement.dataset.lang || "de");
+    })
+    .catch(() => {
+      renderTaskrabbitStats(document.documentElement.dataset.lang || "de");
+    });
 })();
