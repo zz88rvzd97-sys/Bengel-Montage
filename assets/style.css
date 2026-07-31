@@ -534,7 +534,7 @@ h3 {
 
 .taskrabbit-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 390px);
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
   gap: clamp(24px, 5vw, 64px);
   align-items: center;
 }
@@ -560,6 +560,7 @@ h3 {
 .taskrabbit-facts > span {
   display: inline-flex;
   align-items: center;
+  gap: 7px;
   min-height: 36px;
   padding: 7px 11px;
   border: 1px solid rgba(177, 132, 63, 0.32);
@@ -569,15 +570,32 @@ h3 {
   font-weight: 850;
 }
 
+.taskrabbit-facts > span::before {
+  content: "✓";
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(33, 92, 65, 0.1);
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 950;
+}
+
 .taskrabbit-card {
   position: relative;
-  display: grid;
-  gap: 8px;
-  padding: 24px;
-  min-height: 210px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 28px;
+  min-height: 320px;
+  overflow: hidden;
   border: 1px solid rgba(177, 132, 63, 0.34);
   border-radius: var(--radius);
-  background: #ffffff;
+  background:
+    radial-gradient(circle at 100% 0, rgba(177, 132, 63, 0.16), transparent 36%),
+    #ffffff;
   box-shadow: var(--shadow);
   text-decoration: none;
   color: var(--ink);
@@ -598,8 +616,16 @@ h3 {
 .taskrabbit-card:hover,
 .taskrabbit-card:focus-visible {
   outline: none;
-  transform: translateY(-1px);
-  box-shadow: 0 18px 40px rgba(31, 37, 40, 0.13);
+  transform: translateY(-3px);
+  border-color: rgba(177, 132, 63, 0.58);
+  box-shadow: 0 20px 46px rgba(31, 37, 40, 0.15);
+}
+
+.taskrabbit-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-right: 30px;
 }
 
 .taskrabbit-mark {
@@ -612,14 +638,108 @@ h3 {
   padding: 6px;
 }
 
+.taskrabbit-platform {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .taskrabbit-card strong {
+  margin-top: 18px;
   font-size: 1.35rem;
   line-height: 1.18;
 }
 
-.taskrabbit-card span:last-child {
-  color: var(--clay);
+.taskrabbit-rating {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.taskrabbit-score {
+  color: var(--ink);
+  font-size: 2.2rem;
+  font-weight: 950;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.taskrabbit-rating-copy {
+  display: grid;
+  gap: 2px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.taskrabbit-stars {
+  position: relative;
+  display: inline-block;
+  width: max-content;
+  color: rgba(177, 132, 63, 0.24);
+  font-size: 1.06rem;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.taskrabbit-stars::before {
+  content: "★★★★★";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--rating-percentage, 98%);
+  overflow: hidden;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.taskrabbit-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.taskrabbit-meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.taskrabbit-meta > span::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.taskrabbit-card-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 45px;
+  margin-top: 18px;
+  padding: 11px 14px;
+  border-radius: calc(var(--radius) - 2px);
+  background: var(--green);
+  color: #ffffff;
   font-weight: 900;
+}
+
+.taskrabbit-card-cta::after {
+  content: "→";
+  font-size: 1.2rem;
+  line-height: 1;
 }
 
 .request {
