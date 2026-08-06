@@ -1,6 +1,6 @@
 import { readFile, writeFile } from "node:fs/promises";
 
-const profileUrl = "https://www.taskrabbit.de/profile/benjamin-brian-e--2?invitation_source=url";
+const profileUrl = "https://tr.co/bengel";
 const outputPath = new URL("../assets/taskrabbit-stats.json", import.meta.url);
 
 const response = await fetch(profileUrl, {
@@ -31,7 +31,7 @@ const reviewCount = Number(reviewMatch?.[0]);
 const taskCount = Number(profile?.taskCount);
 
 if (
-  profile?.slug !== "benjamin-brian-e--2" ||
+  profile?.slug !== "bengel" ||
   !Number.isFinite(rating) ||
   rating < 0 ||
   rating > 5 ||
