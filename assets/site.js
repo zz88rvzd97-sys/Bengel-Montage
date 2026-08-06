@@ -41,13 +41,13 @@
       "taskrabbit.eyebrow": "Also on Taskrabbit",
       "taskrabbit.title": "Taskrabbit is an additional booking option.",
       "taskrabbit.text": "If you prefer booking through Taskrabbit, you can find my profile there with the prices and booking flow shown by Taskrabbit. Prices on Taskrabbit are usually higher because Taskrabbit includes its own platform and service fees. Direct requests by phone, WhatsApp or email are estimated separately.",
-      "taskrabbit.fact1": "21 tasks completed",
+      "taskrabbit.fact1": "23 tasks completed",
       "taskrabbit.fact2": "Furniture assembly",
       "taskrabbit.fact3": "Wall mounting",
       "taskrabbit.profile": "Taskrabbit profile",
       "taskrabbit.reviews": "16 reviews",
       "taskrabbit.since": "Tasker since 2021",
-      "taskrabbit.tasks": "21 tasks completed",
+      "taskrabbit.tasks": "23 tasks completed",
       "taskrabbit.card": "Profile & reviews",
       "price.eyebrow": "Request & pricing",
       "price.title": "Fairly calculated by effort, scope and distance.",
@@ -109,7 +109,7 @@
   let taskrabbitStats = {
     rating: 4.9,
     reviewCount: 16,
-    taskCount: 21
+    taskCount: 23
   };
 
   elements.forEach((element) => {
