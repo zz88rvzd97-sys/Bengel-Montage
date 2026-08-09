@@ -18,6 +18,7 @@
       "trust.region": "short routes around north-west Berlin",
       "hero.small": "Appointments by arrangement - Schönwalde-Glien OT Grünefeld",
       "visual.title": "Clean assembly, clean handover.",
+      "visual.ai": "AI-generated illustrative image",
       "intro.eyebrow": "Simply well assembled",
       "intro.title": "You describe the job. I bring structure to the assembly, timing and process.",
       "intro.text": "Whether it is a single cabinet, several wardrobe frames or small wall and interior jobs: before the appointment, the scope, available parts and realistic effort are clarified.",
@@ -95,9 +96,9 @@
       "contact.text": "Briefly describe what needs to be done. BEngel Montage will get back to you to coordinate the details.",
       "contact.whatsapp": "Write on WhatsApp",
       "contact.mail": "Write an email",
-      "legal.privacy.title": "Privacy note",
-      "legal.privacy.text": "This website can be used without a contact form. If you contact us by phone or email, your details will only be used to process your request. No tracking or analytics tools are integrated on this static website.",
       "footer.text": "© 2026 BEngel Montage · Furniture assembly and setup service",
+      "footer.imprint": "Legal notice",
+      "footer.privacy": "Privacy",
       "sticky.call": "Call",
       "sticky.whatsapp": "WhatsApp",
       "sticky.mail": "Email"
@@ -109,7 +110,8 @@
   let taskrabbitStats = {
     rating: 4.9,
     reviewCount: 16,
-    taskCount: 23
+    taskCount: 23,
+    updatedAt: "2026-08-06T08:31:05.057Z"
   };
 
   elements.forEach((element) => {
@@ -128,6 +130,12 @@
     const taskLabel = language === "en"
       ? `${taskrabbitStats.taskCount} tasks completed`
       : `${taskrabbitStats.taskCount} Tasks insgesamt`;
+    const updatedDate = new Intl.DateTimeFormat(language === "en" ? "en-GB" : "de-DE", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric"
+    }).format(new Date(taskrabbitStats.updatedAt));
+    const updatedLabel = language === "en" ? `Updated: ${updatedDate}` : `Stand: ${updatedDate}`;
     const accessibleLabel = language === "en"
       ? `Overall rating ${rating} out of 5 stars from ${taskrabbitStats.reviewCount} reviews`
       : `Gesamtbewertung ${rating} von 5 Sternen aus ${taskrabbitStats.reviewCount} Bewertungen`;
@@ -144,6 +152,9 @@
     });
     document.querySelectorAll("[data-taskrabbit-tasks]").forEach((element) => {
       element.textContent = taskLabel;
+    });
+    document.querySelectorAll("[data-taskrabbit-updated]").forEach((element) => {
+      element.textContent = updatedLabel;
     });
 
     const ratingElement = document.querySelector(".taskrabbit-rating");
@@ -199,9 +210,8 @@
     button.addEventListener("click", () => setLanguage(button.dataset.lang || "de"));
   });
 
-  const statsUrl = "https://raw.githubusercontent.com/zz88rvzd97-sys/Bengel-Montage/main/assets/taskrabbit-stats.json";
-  const hourlyCacheKey = Math.floor(Date.now() / 3600000);
-  fetch(`${statsUrl}?v=${hourlyCacheKey}`, { cache: "no-store" })
+  const statsUrl = "assets/taskrabbit-stats.json";
+  fetch(statsUrl, { cache: "no-cache" })
     .then((response) => {
       if (!response.ok) throw new Error("Taskrabbit statistics unavailable");
       return response.json();
@@ -210,6 +220,7 @@
       const rating = Number(stats.rating);
       const reviewCount = Number(stats.reviewCount);
       const taskCount = Number(stats.taskCount);
+      const updatedAt = typeof stats.updatedAt === "string" ? stats.updatedAt : "";
       if (
         !Number.isFinite(rating) ||
         rating < 0 ||
@@ -217,12 +228,13 @@
         !Number.isInteger(reviewCount) ||
         reviewCount < 0 ||
         !Number.isInteger(taskCount) ||
-        taskCount < 0
+        taskCount < 0 ||
+        Number.isNaN(Date.parse(updatedAt))
       ) {
         throw new Error("Invalid Taskrabbit statistics");
       }
 
-      taskrabbitStats = { rating, reviewCount, taskCount };
+      taskrabbitStats = { rating, reviewCount, taskCount, updatedAt };
       renderTaskrabbitStats(document.documentElement.dataset.lang || "de");
     })
     .catch(() => {
