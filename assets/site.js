@@ -43,14 +43,31 @@
       "taskrabbit.eyebrow": "Also on Taskrabbit",
       "taskrabbit.title": "You can also book me through Taskrabbit.",
       "taskrabbit.text": "There you can view my profile, reviews and Taskrabbit's booking process. Please note that prices are usually higher because of the platform fees. If you contact me directly by phone, WhatsApp or email, I will provide an individual price estimate.",
-      "taskrabbit.fact1": "23 tasks completed",
+      "taskrabbit.fact1": "27 tasks completed",
       "taskrabbit.fact2": "Furniture assembly",
       "taskrabbit.fact3": "Wall mounting",
       "taskrabbit.profile": "Taskrabbit profile",
-      "taskrabbit.reviews": "16 reviews",
+      "taskrabbit.reviews": "17 reviews",
       "taskrabbit.since": "Tasker since 2021",
-      "taskrabbit.tasks": "23 tasks completed",
+      "taskrabbit.tasks": "27 tasks completed",
       "taskrabbit.card": "View profile & reviews",
+      "reviews.eyebrow": "Customer reviews",
+      "reviews.title": "What customers say about my work",
+      "reviews.text": "Short excerpts from reviews on my public Taskrabbit profile.",
+      "reviews.sophia": "Wall mounting · August 2026",
+      "reviews.sylvia": "Furniture assembly · February 2022",
+      "reviews.julia": "Home repairs · October 2021",
+      "reviews.source": "View all reviews on Taskrabbit",
+      "scope.eyebrow": "Clear service boundaries",
+      "scope.title": "So you know right away whether your job is a good fit.",
+      "scope.text": "My focus is furniture assembly and smaller wall-mounting jobs. I do not provide the following services:",
+      "scope.link": "Check whether your job fits",
+      "scope1.title": "Electricity, gas and water",
+      "scope1.text": "Work on supply lines, fuse boxes or fixed connections must be carried out by an authorised specialist company.",
+      "scope2.title": "Regulated specialist work",
+      "scope2.text": "Work that requires a master craftsperson, official approval or specialist certification is not part of my service.",
+      "scope3.title": "Unsafe wall fixings",
+      "scope3.text": "I only carry out wall mounting when the wall, weight and fixing method allow for safe installation.",
       "price.eyebrow": "Request & pricing",
       "price.title": "The price depends on the work involved, the size of the job and travel distance.",
       "price.text": "Small jobs are usually charged by time. If the work can be estimated reliably in advance, a fixed price may also be possible – for example for several wardrobes or a complete furniture package.",
@@ -110,9 +127,9 @@
   const elements = Array.from(document.querySelectorAll("[data-i18n]"));
   let taskrabbitStats = {
     rating: 4.9,
-    reviewCount: 16,
-    taskCount: 23,
-    updatedAt: "2026-08-06T08:31:05.057Z"
+    reviewCount: 17,
+    taskCount: 27,
+    updatedAt: "2026-08-09T16:55:31.000Z"
   };
 
   elements.forEach((element) => {

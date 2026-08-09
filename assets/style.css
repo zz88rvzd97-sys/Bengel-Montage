@@ -759,6 +759,186 @@ h3 {
   line-height: 1;
 }
 
+.testimonials {
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
+}
+
+.testimonial-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
+  gap: clamp(24px, 5vw, 70px);
+  align-items: end;
+}
+
+.testimonial-heading p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.review-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  margin: 0;
+  padding: 24px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 100% 0, rgba(177, 132, 63, 0.12), transparent 34%),
+    var(--paper);
+  box-shadow: 0 12px 28px rgba(31, 37, 40, 0.06);
+}
+
+.review-card::after {
+  content: "“";
+  position: absolute;
+  top: 28px;
+  right: 20px;
+  color: rgba(177, 132, 63, 0.18);
+  font-family: Georgia, serif;
+  font-size: 5.2rem;
+  font-weight: 700;
+  line-height: 0.65;
+  pointer-events: none;
+}
+
+.review-stars {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  width: max-content;
+  color: var(--gold);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+}
+
+.review-card > p {
+  position: relative;
+  z-index: 1;
+  margin: 24px 0 30px;
+  color: var(--ink);
+  font-size: clamp(1.12rem, 1.8vw, 1.3rem);
+  font-weight: 780;
+  line-height: 1.48;
+}
+
+.review-card footer {
+  display: grid;
+  gap: 2px;
+  margin-top: auto;
+  padding-top: 17px;
+  border-top: 1px solid var(--line);
+}
+
+.review-card cite {
+  color: var(--green);
+  font-style: normal;
+  font-weight: 950;
+}
+
+.review-card footer span {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 750;
+}
+
+.review-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 24px;
+  color: var(--green);
+  font-weight: 900;
+  text-underline-offset: 4px;
+}
+
+.review-source::after {
+  content: "↗";
+  color: var(--gold);
+  font-size: 1.05rem;
+}
+
+.review-source:hover,
+.review-source:focus-visible {
+  color: var(--clay);
+}
+
+.scope {
+  background: #f5efe4;
+  border-bottom: 1px solid var(--line);
+}
+
+.scope-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(420px, 1.22fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: start;
+}
+
+.scope-copy {
+  position: sticky;
+  top: 118px;
+}
+
+.scope-copy > p:last-of-type {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 1.06rem;
+}
+
+.scope-copy .button {
+  margin-top: 24px;
+}
+
+.scope-list {
+  display: grid;
+  gap: 12px;
+}
+
+.scope-list article {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 16px;
+  padding: 21px;
+  border: 1px solid rgba(177, 132, 63, 0.3);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 10px 24px rgba(31, 37, 40, 0.05);
+}
+
+.scope-number {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius);
+  background: var(--green);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+}
+
+.scope-list h3 {
+  margin: 1px 0 6px;
+  color: var(--green);
+}
+
+.scope-list p {
+  margin: 0;
+  color: var(--muted);
+}
+
 .request {
   background: #eef4ef;
 }
@@ -1185,14 +1365,21 @@ html[data-lang="en"] .legal-english {
   .request-layout,
   .area-layout,
   .taskrabbit-layout,
+  .testimonial-heading,
+  .scope-layout,
   .contact-layout,
   .legal-layout {
     grid-template-columns: 1fr;
   }
 
+  .scope-copy {
+    position: static;
+  }
+
   .service-grid,
   .proof-grid,
   .steps,
+  .review-grid,
   .local-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1233,8 +1420,24 @@ html[data-lang="en"] .legal-english {
   .proof-grid,
   .steps,
   .faq-grid,
+  .review-grid,
   .local-grid {
     grid-template-columns: 1fr;
+  }
+
+  .review-card {
+    min-height: 220px;
+  }
+
+  .scope-list article {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 13px;
+    padding: 18px;
+  }
+
+  .scope-number {
+    width: 42px;
+    height: 42px;
   }
 
   .service-card {
