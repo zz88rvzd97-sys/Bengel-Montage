@@ -43,13 +43,13 @@
       "taskrabbit.eyebrow": "Also on Taskrabbit",
       "taskrabbit.title": "You can also book me through Taskrabbit.",
       "taskrabbit.text": "There you can view my profile, reviews and Taskrabbit's booking process. Please note that prices are usually higher because of the platform fees. If you contact me directly by phone, WhatsApp or email, I will provide an individual price estimate.",
-      "taskrabbit.fact1": "27 tasks completed",
+      "taskrabbit.fact1": "52 tasks completed",
       "taskrabbit.fact2": "Furniture assembly",
       "taskrabbit.fact3": "Wall mounting",
       "taskrabbit.profile": "Taskrabbit profile",
-      "taskrabbit.reviews": "17 reviews",
+      "taskrabbit.reviews": "22 reviews",
       "taskrabbit.since": "Tasker since 2021",
-      "taskrabbit.tasks": "27 tasks completed",
+      "taskrabbit.tasks": "52 tasks completed",
       "taskrabbit.card": "View profile & reviews",
       "reviews.eyebrow": "Customer reviews",
       "reviews.title": "What customers say about my work",
@@ -80,7 +80,8 @@
       "pricebox.li5": "Whether the furniture and packages are already at the assembly location",
       "area.eyebrow": "Service area",
       "area.title": "My service area: Schönwalde-Glien and north-west Berlin",
-      "area.text": "I mainly work in Grünefeld, Schönwalde-Glien, Falkensee, Dallgow-Döberitz, Brieselang, Wustermark and Nauen. Other locations are possible by arrangement.",
+      "area.text": "I mainly work in Grünefeld, Schönwalde-Glien, Falkensee, Dallgow-Döberitz, Brieselang, Wustermark and Nauen. Appointments in Berlin-Spandau and other locations are possible by arrangement.",
+      "area.link": "View service area and local pages",
       "local.eyebrow": "Near you",
       "local.title": "Furniture assembly, PAX assembly and small mounting jobs in the region",
       "local1.title": "Furniture assembly in Falkensee",
@@ -89,6 +90,7 @@
       "local2.text": "I assemble wardrobe systems with doors, drawers and interior fittings, including projects with several frames.",
       "local3.title": "Small mounting jobs in Berlin-Spandau",
       "local3.text": "I install shelves, brackets, curtain rods and coat racks in north-west Berlin.",
+      "local.more": "Learn more",
       "process.eyebrow": "Process",
       "process.title": "How your request works",
       "step1.title": "Send a request",
@@ -115,6 +117,7 @@
       "contact.whatsapp": "Request via WhatsApp",
       "contact.mail": "Request by email",
       "footer.text": "© 2026 BEngel Montage · Furniture assembly and setup service",
+      "footer.area": "Service area",
       "footer.imprint": "Legal notice",
       "footer.privacy": "Privacy",
       "sticky.call": "Call",
@@ -126,10 +129,10 @@
   const original = {};
   const elements = Array.from(document.querySelectorAll("[data-i18n]"));
   let taskrabbitStats = {
-    rating: 4.9,
-    reviewCount: 17,
-    taskCount: 27,
-    updatedAt: "2026-08-09T16:55:31.000Z"
+    rating: 5,
+    reviewCount: 22,
+    taskCount: 52,
+    updatedAt: "2026-09-21T10:45:04.236Z"
   };
 
   elements.forEach((element) => {
