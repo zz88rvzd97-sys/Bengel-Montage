@@ -43,19 +43,19 @@
       "taskrabbit.eyebrow": "Also on Taskrabbit",
       "taskrabbit.title": "You can also book me through Taskrabbit.",
       "taskrabbit.text": "There you can view my profile, reviews and Taskrabbit's booking process. Please note that prices are usually higher because of the platform fees. If you contact me directly by phone, WhatsApp or email, I will provide an individual price estimate.",
-      "taskrabbit.fact1": "52 tasks completed",
+      "taskrabbit.fact1": "54 tasks completed",
       "taskrabbit.fact2": "Furniture assembly",
       "taskrabbit.fact3": "Wall mounting",
       "taskrabbit.profile": "Taskrabbit profile",
       "taskrabbit.reviews": "22 reviews",
       "taskrabbit.since": "Tasker since 2021",
-      "taskrabbit.tasks": "52 tasks completed",
+      "taskrabbit.tasks": "54 tasks completed",
       "taskrabbit.card": "View profile & reviews",
       "reviews.eyebrow": "Customer reviews",
       "reviews.title": "What customers say about my work",
       "reviews.text": "Short excerpts from reviews on my public Taskrabbit profile.",
-      "reviews.sophia": "Wall mounting · August 2026",
-      "reviews.sylvia": "Furniture assembly · February 2022",
+      "reviews.lisa": "Wall mounting · August 2026",
+      "reviews.annette": "Home repairs · August 2026",
       "reviews.julia": "Home repairs · October 2021",
       "reviews.source": "View all reviews on Taskrabbit",
       "scope.eyebrow": "Clear service boundaries",
@@ -131,8 +131,8 @@
   let taskrabbitStats = {
     rating: 5,
     reviewCount: 22,
-    taskCount: 52,
-    updatedAt: "2026-09-21T10:45:04.236Z"
+    taskCount: 54,
+    updatedAt: "2026-09-23T10:42:12.000Z"
   };
 
   elements.forEach((element) => {
