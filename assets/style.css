@@ -74,12 +74,20 @@ a {
 .brand {
   display: inline-flex;
   align-items: center;
+  gap: 9px;
   flex: 0 0 auto;
 }
 
-.brand img {
-  width: 132px;
+.brand .brand-symbol {
+  width: 85px;
   height: auto;
+  opacity: 0.9;
+}
+
+.brand .brand-wordmark {
+  width: 112px;
+  height: auto;
+  opacity: 0.9;
 }
 
 .primary-nav {
@@ -1834,8 +1842,12 @@ html[data-lang="en"] .legal-english {
     width: min(100% - 30px, var(--content));
   }
 
-  .brand img {
-    width: 122px;
+  .brand .brand-symbol {
+    width: 71px;
+  }
+
+  .brand .brand-wordmark {
+    width: 94px;
   }
 
   .primary-nav {
