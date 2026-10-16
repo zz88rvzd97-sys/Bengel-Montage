@@ -991,6 +991,122 @@ h3 {
   background: var(--gold);
 }
 
+.service-detail-link {
+  display: inline-flex;
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+.inquiry-helper {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(177, 132, 63, 0.12), transparent 28%),
+    #ffffff;
+  border-top: 1px solid var(--line);
+}
+
+.inquiry-helper-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(420px, 1.28fr);
+  gap: clamp(30px, 6vw, 82px);
+  align-items: start;
+}
+
+.inquiry-helper-copy {
+  position: sticky;
+  top: 110px;
+}
+
+.inquiry-helper-copy > p:not(.eyebrow) {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.inquiry-benefits {
+  margin-top: 26px;
+}
+
+.inquiry-form {
+  padding: clamp(22px, 4vw, 36px);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.inquiry-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.form-field {
+  display: grid;
+  gap: 7px;
+  color: var(--green);
+  font-size: 0.94rem;
+  font-weight: 850;
+}
+
+.form-field-wide {
+  grid-column: 1 / -1;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 12px;
+  border: 1px solid #b9c7c1;
+  border-radius: var(--radius);
+  background: #ffffff;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 600;
+}
+
+.form-field textarea {
+  min-height: 112px;
+  resize: vertical;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--green-2);
+  outline: 3px solid rgba(62, 107, 95, 0.18);
+}
+
+.inquiry-form-actions {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.inquiry-form .button {
+  cursor: pointer;
+  font: inherit;
+}
+
+.form-privacy,
+.form-status {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.87rem;
+}
+
+.form-status:not(:empty) {
+  margin-top: 14px;
+  color: #8b2f2f;
+  font-weight: 800;
+}
+
 .area-layout {
   display: grid;
   grid-template-columns: minmax(0, 0.82fr) minmax(320px, 1.18fr);
@@ -1627,6 +1743,14 @@ html[data-lang="en"] .legal-english {
     position: static;
   }
 
+  .inquiry-helper-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .inquiry-helper-copy {
+    position: static;
+  }
+
   .service-grid,
   .proof-grid,
   .steps,
@@ -1707,6 +1831,15 @@ html[data-lang="en"] .legal-english {
 
   .service-card {
     min-height: 0;
+  }
+
+  .inquiry-form-grid,
+  .inquiry-form-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .inquiry-form-actions .button {
+    width: 100%;
   }
 
   .service-visual {

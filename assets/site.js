@@ -28,6 +28,7 @@
       "service1.text": "I assemble wardrobes, chests of drawers, shelves, beds, tables, sideboards and other furniture, then align everything carefully.",
       "service2.title": "PAX & wardrobe systems",
       "service2.text": "I install frames, doors, drawers, shelves, clothes rails and interior fittings, then align the wardrobe system carefully.",
+      "service2.link": "More about PAX and wardrobe assembly",
       "service3.title": "Small mounting jobs",
       "service3.text": "I install shelves, brackets, curtain rods and coat racks in houses and apartments.",
       "service4.title": "Preparation & assembly",
@@ -71,7 +72,7 @@
       "price.eyebrow": "Request & pricing",
       "price.title": "The price depends on the work involved, the size of the job and travel distance.",
       "price.text": "Small jobs are usually charged by time. If the work can be estimated reliably in advance, a fixed price may also be possible – for example for several wardrobes or a complete furniture package.",
-      "price.link": "Send a non-binding request",
+      "price.link": "Prepare a request",
       "pricebox.title": "These details help with the estimate",
       "pricebox.li1": "Photos of the assembly location and packages",
       "pricebox.li2": "Product links, model names or assembly instructions",
@@ -111,12 +112,43 @@
       "faq4.a": "Yes. Photos, product links, the location, floor and preferred date help me provide a more accurate estimate.",
       "faq5.q": "Can I also book through Taskrabbit?",
       "faq5.a": "Yes. On Taskrabbit you can view my profile, reviews and the booking process. Prices there are usually higher because of the platform fees.",
+      "inquiry.eyebrow": "Request assistant",
+      "inquiry.title": "Create a complete WhatsApp request in a few steps",
+      "inquiry.text": "Choose what needs to be assembled and add the key details. A clear message is created for you, which you can review and change before sending.",
+      "inquiry.benefit1": "No account or registration required",
+      "inquiry.benefit2": "You can add photos afterwards in the WhatsApp chat",
+      "inquiry.benefit3": "Your details are only transferred when WhatsApp opens",
+      "inquiry.job": "What needs to be assembled?",
+      "inquiry.choose": "Please select",
+      "inquiry.choose.optional": "Please select (optional)",
+      "inquiry.job.pax": "PAX or wardrobe assembly",
+      "inquiry.job.furniture": "Other furniture assembly",
+      "inquiry.job.wall": "Small wall-mounting job",
+      "inquiry.job.several": "Several different jobs",
+      "inquiry.job.other": "Something else",
+      "inquiry.scope": "Number of items or scope",
+      "inquiry.location": "Town and postcode",
+      "inquiry.floor": "Floor and lift",
+      "inquiry.floor.ground": "Ground floor",
+      "inquiry.floor.elevator": "Upper floor with lift",
+      "inquiry.floor.stairs": "Upper floor without lift",
+      "inquiry.floor.house": "House",
+      "inquiry.unknown": "Not yet known",
+      "inquiry.date": "Preferred date or period",
+      "inquiry.parking": "Parking",
+      "inquiry.parking.yes": "Directly at the property",
+      "inquiry.parking.limited": "Limited parking",
+      "inquiry.parking.no": "No parking directly nearby",
+      "inquiry.details": "Further details or product links",
+      "inquiry.submit": "Create WhatsApp message",
+      "inquiry.privacy": "Nothing is stored on this website. You can review and change the message in WhatsApp before sending.",
       "contact.eyebrow": "Contact",
       "contact.title": "Request assembly now",
       "contact.text": "Briefly tell me what needs to be assembled or mounted. I will get back to you to discuss the details.",
       "contact.whatsapp": "Request via WhatsApp",
       "contact.mail": "Request by email",
       "footer.text": "© 2026 BEngel Montage · Furniture assembly and setup service",
+      "footer.pax": "PAX & wardrobes",
       "footer.area": "Service area",
       "footer.imprint": "Legal notice",
       "footer.privacy": "Privacy",
@@ -237,6 +269,78 @@
   document.querySelectorAll(".lang-switch button").forEach((button) => {
     button.addEventListener("click", () => setLanguage(button.dataset.lang || "de"));
   });
+
+  const inquiryForm = document.querySelector("#inquiry-form");
+  if (inquiryForm) {
+    const messageLabels = {
+      de: {
+        greeting: "Hallo BEngel Montage,",
+        intro: "ich möchte gern folgende Montage anfragen:",
+        job: "Leistung",
+        scope: "Anzahl/Umfang",
+        location: "Ort/PLZ",
+        floor: "Etage/Aufzug",
+        date: "Wunschtermin",
+        parking: "Parkmöglichkeit",
+        details: "Weitere Angaben",
+        photos: "Fotos oder weitere Unterlagen sende ich direkt im Chat.",
+        closing: "Viele Grüße",
+        invalid: "Bitte wähle eine Leistung aus und trage Ort sowie Postleitzahl ein."
+      },
+      en: {
+        greeting: "Hello BEngel Montage,",
+        intro: "I would like to request the following assembly:",
+        job: "Service",
+        scope: "Number of items/scope",
+        location: "Town/postcode",
+        floor: "Floor/lift",
+        date: "Preferred date",
+        parking: "Parking",
+        details: "Further details",
+        photos: "I will send photos or further documents directly in the chat.",
+        closing: "Kind regards",
+        invalid: "Please select a service and enter the town and postcode."
+      }
+    };
+
+    inquiryForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const language = document.documentElement.dataset.lang === "en" ? "en" : "de";
+      const labels = messageLabels[language];
+      const status = inquiryForm.querySelector(".form-status");
+
+      if (!inquiryForm.checkValidity()) {
+        inquiryForm.reportValidity();
+        if (status) status.textContent = labels.invalid;
+        return;
+      }
+
+      const data = new FormData(inquiryForm);
+      const selectedText = (name) => {
+        const field = inquiryForm.elements[name];
+        const option = field && field.selectedOptions ? field.selectedOptions[0] : null;
+        return option ? option.textContent.trim() : "";
+      };
+      const addLine = (lines, label, value) => {
+        const cleanValue = String(value || "").trim();
+        if (cleanValue) lines.push(`${label}: ${cleanValue}`);
+      };
+
+      const lines = [labels.greeting, "", labels.intro];
+      addLine(lines, labels.job, selectedText("job"));
+      addLine(lines, labels.scope, data.get("scope"));
+      addLine(lines, labels.location, data.get("location"));
+      addLine(lines, labels.floor, data.get("floor") ? selectedText("floor") : "");
+      addLine(lines, labels.date, data.get("date"));
+      addLine(lines, labels.parking, data.get("parking") ? selectedText("parking") : "");
+      addLine(lines, labels.details, data.get("details"));
+      lines.push("", labels.photos, "", labels.closing);
+
+      const whatsappUrl = `https://wa.me/4915167969682?text=${encodeURIComponent(lines.join("\n"))}`;
+      if (status) status.textContent = "";
+      window.location.href = whatsappUrl;
+    });
+  }
 
   const statsUrl = "assets/taskrabbit-stats.json";
   fetch(statsUrl, { cache: "no-cache" })
