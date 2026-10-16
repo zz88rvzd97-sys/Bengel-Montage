@@ -18,7 +18,7 @@
       "trust.pax": "wardrobe systems and interiors",
       "trust.region": "short routes around north-west Berlin",
       "hero.small": "Appointments by arrangement · Schönwalde-Glien OT Grünefeld",
-      "visual.title": "Carefully assembled. Cleanly handed over.",
+      "visual.title": "Discussed in advance. Carefully assembled. Left tidy.",
       "visual.ai": "AI-generated illustrative image",
       "intro.eyebrow": "Personal and straightforward",
       "intro.title": "You describe the job – I take care of the planning and assembly.",
