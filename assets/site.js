@@ -113,8 +113,8 @@
       "faq5.q": "Can I also book through Taskrabbit?",
       "faq5.a": "Yes. On Taskrabbit you can view my profile, reviews and the booking process. Prices there are usually higher because of the platform fees.",
       "inquiry.eyebrow": "Request assistant",
-      "inquiry.title": "Create a complete WhatsApp request in a few steps",
-      "inquiry.text": "Choose what needs to be assembled and add the key details. A clear message is created for you, which you can review and change before sending.",
+      "inquiry.title": "Your request – one question at a time",
+      "inquiry.text": "The assistant guides you through one question per page. If you do not know something yet, you can leave it blank.",
       "inquiry.benefit1": "No account or registration required",
       "inquiry.benefit2": "You can add photos afterwards in the WhatsApp chat",
       "inquiry.benefit3": "Your details are only transferred when WhatsApp opens",
@@ -126,20 +126,40 @@
       "inquiry.job.wall": "Small wall-mounting job",
       "inquiry.job.several": "Several different jobs",
       "inquiry.job.other": "Something else",
-      "inquiry.scope": "Number of items or scope",
-      "inquiry.location": "Town and postcode",
-      "inquiry.floor": "Floor and lift",
+      "inquiry.scope": "What needs to be assembled?",
+      "inquiry.scope.placeholder": "For example: one wardrobe or several pieces of furniture",
+      "inquiry.scope.hint": "For example: a PAX wardrobe with 3 frames. If you are not sure yet, just leave this blank.",
+      "inquiry.location": "Where is the job?",
+      "inquiry.location.label": "Where is the job? (town and postcode)",
+      "inquiry.location.placeholder": "e.g. 14621 Schönwalde-Glien",
+      "inquiry.floor": "Which floor is the job on?",
+      "inquiry.floor.basement": "Basement / lower-ground floor",
       "inquiry.floor.ground": "Ground floor",
-      "inquiry.floor.elevator": "Upper floor with lift",
-      "inquiry.floor.stairs": "Upper floor without lift",
-      "inquiry.floor.house": "House",
+      "inquiry.floor.1": "1st floor",
+      "inquiry.floor.2": "2nd floor",
+      "inquiry.floor.3": "3rd floor",
+      "inquiry.floor.4plus": "4th floor or higher",
+      "inquiry.floor.house": "Detached house",
+      "inquiry.lift": "Is there a lift?",
+      "inquiry.lift.yes": "Yes",
+      "inquiry.lift.no": "No",
+      "inquiry.lift.na": "Not needed (e.g. ground floor / house)",
+      "inquiry.zone": "Is there a parking zone or paid parking?",
+      "inquiry.zone.no": "No",
+      "inquiry.zone.paid": "Yes, paid parking zone",
+      "inquiry.zone.resident": "Yes, residents-only parking zone",
+      "inquiry.zone.other": "Yes, another restriction",
       "inquiry.unknown": "Not yet known",
-      "inquiry.date": "Preferred date or period",
-      "inquiry.parking": "Parking",
-      "inquiry.parking.yes": "Directly at the property",
+      "inquiry.parking": "What is parking like right at the property?",
+      "inquiry.parking.yes": "Parking is possible at the property",
       "inquiry.parking.limited": "Limited parking",
       "inquiry.parking.no": "No parking directly nearby",
-      "inquiry.details": "Further details or product links",
+      "inquiry.date": "When would suit you best?",
+      "inquiry.date.hint": "A preferred date or rough time period is enough. This is optional.",
+      "inquiry.details": "Would you like to add anything?",
+      "inquiry.details.hint": "For example, measurements, product links or special details. You can send photos later in WhatsApp.",
+      "inquiry.back": "Back",
+      "inquiry.next": "Next",
       "inquiry.submit": "Create WhatsApp message",
       "inquiry.privacy": "Nothing is stored on this website. You can review and change the message in WhatsApp before sending.",
       "contact.eyebrow": "Contact",
@@ -160,6 +180,7 @@
 
   const original = {};
   const elements = Array.from(document.querySelectorAll("[data-i18n]"));
+  const originalPlaceholders = {};
   let taskrabbitStats = {
     rating: 5,
     reviewCount: 22,
@@ -169,6 +190,9 @@
 
   elements.forEach((element) => {
     original[element.dataset.i18n] = element.innerHTML;
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+    originalPlaceholders[element.dataset.i18nPlaceholder] = element.getAttribute("placeholder") || "";
   });
 
   function formatRating(rating, language) {
@@ -245,6 +269,21 @@
       if (value) element.innerHTML = value;
     });
 
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+      const key = element.dataset.i18nPlaceholder;
+      const value = dictionary[key] || originalPlaceholders[key];
+      if (value) element.placeholder = value;
+    });
+
+    const progressBar = document.querySelector("[data-progress]");
+    if (progressBar) progressBar.setAttribute("aria-label", language === "en" ? "Form progress" : "Formularfortschritt");
+    const counter = document.querySelector("[data-step-counter]");
+    if (counter && progressBar) {
+      const current = Number(progressBar.getAttribute("aria-valuenow") || 1);
+      const total = document.querySelectorAll("[data-inquiry-step]").length;
+      counter.textContent = language === "en" ? `Step ${current} of ${total}` : `Schritt ${current} von ${total}`;
+    }
+
     document.querySelectorAll(".lang-switch button").forEach((button) => {
       const isActive = button.dataset.lang === language;
       button.classList.toggle("is-active", isActive);
@@ -272,15 +311,60 @@
 
   const inquiryForm = document.querySelector("#inquiry-form");
   if (inquiryForm) {
+    const steps = Array.from(inquiryForm.querySelectorAll("[data-inquiry-step]"));
+    const backButton = inquiryForm.querySelector("[data-step-back]");
+    const nextButton = inquiryForm.querySelector("[data-step-next]");
+    const submitButton = inquiryForm.querySelector("[data-step-submit]");
+    const stepCounter = inquiryForm.querySelector("[data-step-counter]");
+    const progress = inquiryForm.querySelector("[data-progress]");
+    let currentStep = 0;
+
+    const showStep = (index, moveFocus = true) => {
+      currentStep = Math.max(0, Math.min(index, steps.length - 1));
+      steps.forEach((step, stepIndex) => { step.hidden = stepIndex !== currentStep; });
+      if (backButton) backButton.hidden = currentStep === 0;
+      if (nextButton) nextButton.hidden = currentStep === steps.length - 1;
+      if (submitButton) submitButton.hidden = currentStep !== steps.length - 1;
+      const language = document.documentElement.dataset.lang === "en" ? "en" : "de";
+      if (stepCounter) stepCounter.textContent = language === "en"
+        ? `Step ${currentStep + 1} of ${steps.length}`
+        : `Schritt ${currentStep + 1} von ${steps.length}`;
+      if (progress) {
+        progress.setAttribute("aria-valuemax", String(steps.length));
+        progress.setAttribute("aria-valuenow", String(currentStep + 1));
+        const fill = progress.querySelector("span");
+        if (fill) fill.style.width = `${((currentStep + 1) / steps.length) * 100}%`;
+      }
+      const heading = steps[currentStep].querySelector("h3");
+      if (moveFocus && heading) heading.focus();
+    };
+
+    const advance = () => {
+      const fields = Array.from(steps[currentStep].querySelectorAll("input, select, textarea"));
+      const invalidField = fields.find((field) => !field.checkValidity());
+      if (invalidField) {
+        invalidField.reportValidity();
+        invalidField.focus();
+        return;
+      }
+      showStep(currentStep + 1);
+    };
+
+    if (backButton) backButton.addEventListener("click", () => showStep(currentStep - 1));
+    if (nextButton) nextButton.addEventListener("click", advance);
+    showStep(0, false);
+
     const messageLabels = {
       de: {
         greeting: "Hallo BEngel Montage,",
         intro: "ich möchte gern folgende Montage anfragen:",
         job: "Leistung",
-        scope: "Anzahl/Umfang",
+        scope: "Was soll ungefähr aufgebaut werden?",
         location: "Ort/PLZ",
-        floor: "Etage/Aufzug",
+        floor: "Etage",
+        lift: "Aufzug",
         date: "Wunschtermin",
+        zone: "Parkzone",
         parking: "Parkmöglichkeit",
         details: "Weitere Angaben",
         photos: "Fotos oder weitere Unterlagen sende ich direkt im Chat.",
@@ -291,10 +375,12 @@
         greeting: "Hello BEngel Montage,",
         intro: "I would like to request the following assembly:",
         job: "Service",
-        scope: "Number of items/scope",
+        scope: "What needs to be assembled?",
         location: "Town/postcode",
-        floor: "Floor/lift",
+        floor: "Floor",
+        lift: "Lift",
         date: "Preferred date",
+        zone: "Parking zone",
         parking: "Parking",
         details: "Further details",
         photos: "I will send photos or further documents directly in the chat.",
@@ -331,7 +417,9 @@
       addLine(lines, labels.scope, data.get("scope"));
       addLine(lines, labels.location, data.get("location"));
       addLine(lines, labels.floor, data.get("floor") ? selectedText("floor") : "");
+      addLine(lines, labels.lift, data.get("lift") ? selectedText("lift") : "");
       addLine(lines, labels.date, data.get("date"));
+      addLine(lines, labels.zone, data.get("zone") ? selectedText("zone") : "");
       addLine(lines, labels.parking, data.get("parking") ? selectedText("parking") : "");
       addLine(lines, labels.details, data.get("details"));
       lines.push("", labels.photos, "", labels.closing);
