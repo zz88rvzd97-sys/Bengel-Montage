@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://www.bengel-montage.de/">
   <meta property="og:image" content="https://www.bengel-montage.de/assets/logo-haupt-small.png">
   <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="assets/style.css?v=20260923-2">
+  <link rel="stylesheet" href="assets/style.css?v=20261016-1">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -435,8 +435,8 @@
       <div class="section-inner inquiry-helper-layout">
         <div class="inquiry-helper-copy">
           <p class="eyebrow"><span data-i18n="inquiry.eyebrow">Anfrage-Assistent</span></p>
-          <h2 id="inquiry-title"><span data-i18n="inquiry.title">In wenigen Angaben zur fertigen WhatsApp-Anfrage</span></h2>
-          <p><span data-i18n="inquiry.text">Wähle aus, was montiert werden soll, und ergänze die wichtigsten Eckdaten. Daraus wird eine übersichtliche Nachricht erstellt, die du vor dem Senden noch ändern kannst.</span></p>
+          <h2 id="inquiry-title"><span data-i18n="inquiry.title">Deine Anfrage – eine Frage nach der anderen</span></h2>
+          <p><span data-i18n="inquiry.text">Der Assistent führt dich mit einer Frage pro Seite durch die Anfrage. Was du noch nicht weißt, kannst du einfach überspringen.</span></p>
           <ul class="plain-check-list inquiry-benefits">
             <li><span data-i18n="inquiry.benefit1">Kein Konto und keine Anmeldung nötig</span></li>
             <li><span data-i18n="inquiry.benefit2">Fotos kannst du anschließend im WhatsApp-Chat ergänzen</span></li>
@@ -445,67 +445,68 @@
         </div>
 
         <form class="inquiry-form" id="inquiry-form">
-          <div class="inquiry-form-grid">
-            <label class="form-field">
-              <span data-i18n="inquiry.job">Was soll montiert werden?</span>
-              <select name="job" required>
-                <option value="" data-i18n="inquiry.choose">Bitte auswählen</option>
-                <option value="pax" data-i18n="inquiry.job.pax">PAX- oder Schrankmontage</option>
-                <option value="furniture" data-i18n="inquiry.job.furniture">Andere Möbelmontage</option>
-                <option value="wall" data-i18n="inquiry.job.wall">Kleinere Wandmontage</option>
-                <option value="several" data-i18n="inquiry.job.several">Mehrere unterschiedliche Arbeiten</option>
-                <option value="other" data-i18n="inquiry.job.other">Etwas anderes</option>
-              </select>
-            </label>
-
-            <label class="form-field">
-              <span data-i18n="inquiry.scope">Anzahl oder Umfang</span>
-              <input name="scope" type="text" autocomplete="off">
-            </label>
-
-            <label class="form-field">
-              <span data-i18n="inquiry.location">Ort und Postleitzahl</span>
-              <input name="location" type="text" autocomplete="postal-code" required>
-            </label>
-
-            <label class="form-field">
-              <span data-i18n="inquiry.floor">Etage und Aufzug</span>
-              <select name="floor">
-                <option value="" data-i18n="inquiry.choose.optional">Bitte auswählen (optional)</option>
-                <option value="ground" data-i18n="inquiry.floor.ground">Erdgeschoss</option>
-                <option value="elevator" data-i18n="inquiry.floor.elevator">Etage mit Aufzug</option>
-                <option value="stairs" data-i18n="inquiry.floor.stairs">Etage ohne Aufzug</option>
-                <option value="house" data-i18n="inquiry.floor.house">Haus</option>
-                <option value="unknown" data-i18n="inquiry.unknown">Noch unklar</option>
-              </select>
-            </label>
-
-            <label class="form-field">
-              <span data-i18n="inquiry.date">Wunschtermin oder Zeitraum</span>
-              <input name="date" type="text" autocomplete="off">
-            </label>
-
-            <label class="form-field">
-              <span data-i18n="inquiry.parking">Parkmöglichkeit</span>
-              <select name="parking">
-                <option value="" data-i18n="inquiry.choose.optional">Bitte auswählen (optional)</option>
-                <option value="yes" data-i18n="inquiry.parking.yes">Direkt am Einsatzort</option>
-                <option value="limited" data-i18n="inquiry.parking.limited">Nur eingeschränkt</option>
-                <option value="no" data-i18n="inquiry.parking.no">Keine direkte Parkmöglichkeit</option>
-                <option value="unknown" data-i18n="inquiry.unknown">Noch unklar</option>
-              </select>
-            </label>
-
-            <label class="form-field form-field-wide">
-              <span data-i18n="inquiry.details">Weitere Angaben oder Produktlinks</span>
-              <textarea name="details" rows="4"></textarea>
-            </label>
+          <div class="inquiry-progress" aria-live="polite">
+            <span class="inquiry-step-count" data-step-counter>Schritt 1 von 9</span>
+            <div class="inquiry-progress-track" role="progressbar" aria-label="Formularfortschritt" aria-valuemin="1" aria-valuemax="9" aria-valuenow="1" data-progress><span></span></div>
           </div>
-
-          <div class="inquiry-form-actions">
-            <button class="button whatsapp" type="submit"><span data-i18n="inquiry.submit">WhatsApp-Nachricht erstellen</span></button>
-            <p class="form-privacy"><span data-i18n="inquiry.privacy">Es wird nichts auf dieser Website gespeichert. Vor dem Absenden kannst du die Nachricht in WhatsApp prüfen und ändern.</span></p>
+          <div class="inquiry-steps">
+            <section class="inquiry-step" data-inquiry-step aria-labelledby="inquiry-step-1">
+              <h3 id="inquiry-step-1" tabindex="-1" data-i18n="inquiry.job">Was soll montiert werden?</h3>
+              <label class="form-field"><span data-i18n="inquiry.job">Was soll montiert werden?</span>
+                <select name="job" required>
+                  <option value="" data-i18n="inquiry.choose">Bitte auswählen</option>
+                  <option value="pax" data-i18n="inquiry.job.pax">PAX- oder Schrankmontage</option>
+                  <option value="furniture" data-i18n="inquiry.job.furniture">Andere Möbelmontage</option>
+                  <option value="wall" data-i18n="inquiry.job.wall">Kleinere Wandmontage</option>
+                  <option value="several" data-i18n="inquiry.job.several">Mehrere unterschiedliche Arbeiten</option>
+                  <option value="other" data-i18n="inquiry.job.other">Etwas anderes</option>
+                </select>
+              </label>
+            </section>
+            <section class="inquiry-step" data-inquiry-step aria-labelledby="inquiry-step-2" hidden>
+              <h3 id="inquiry-step-2" tabindex="-1" data-i18n="inquiry.scope">Was soll aufgebaut werden?</h3>
+              <label class="form-field"><span data-i18n="inquiry.scope">Was soll aufgebaut werden?</span><input name="scope" type="text" autocomplete="off" data-i18n-placeholder="inquiry.scope.placeholder" placeholder="Zum Beispiel: ein Schrank oder mehrere Möbel"></label>
+              <p class="inquiry-hint" data-i18n="inquiry.scope.hint">Zum Beispiel: ein PAX-Schrank mit 3 Korpussen. Wenn es noch unklar ist, kannst du das Feld einfach freilassen.</p>
+            </section>
+            <section class="inquiry-step" data-inquiry-step aria-labelledby="inquiry-step-3" hidden>
+              <h3 id="inquiry-step-3" tabindex="-1" data-i18n="inquiry.location">Wo findet der Auftrag statt?</h3>
+              <label class="form-field"><span data-i18n="inquiry.location.label">Wo findet der Auftrag statt? (Ort und Postleitzahl)</span><input name="location" type="text" autocomplete="postal-code" required data-i18n-placeholder="inquiry.location.placeholder" placeholder="z. B. 14621 Schönwalde-Glien"></label>
+            </section>
+            <section class="inquiry-step" data-inquiry-step aria-labelledby="inquiry-step-4" hidden>
+              <h3 id="inquiry-step-4" tabindex="-1" data-i18n="inquiry.floor">In welcher Etage ist der Einsatzort?</h3>
+              <label class="form-field"><span data-i18n="inquiry.floor">In welcher Etage ist der Einsatzort?</span>
+                <select name="floor"><option value="" data-i18n="inquiry.choose.optional">Bitte auswählen (optional)</option><option value="basement" data-i18n="inquiry.floor.basement">Keller / Souterrain</option><option value="ground" data-i18n="inquiry.floor.ground">Erdgeschoss</option><option value="1" data-i18n="inquiry.floor.1">1. Etage</option><option value="2" data-i18n="inquiry.floor.2">2. Etage</option><option value="3" data-i18n="inquiry.floor.3">3. Etage</option><option value="4plus" data-i18n="inquiry.floor.4plus">4. Etage oder höher</option><option value="house" data-i18n="inquiry.floor.house">Einfamilienhaus</option><option value="unknown" data-i18n="inquiry.unknown">Noch unklar</option></select>
+              </label>
+            </section>
+            <section class="inquiry-step" data-inquiry-step aria-labelledby="inquiry-step-5" hidden>
+              <h3 id="inquiry-step-5" tabindex="-1" data-i18n="inquiry.lift">Gibt es einen Aufzug?</h3>
+              <label class="form-field"><span data-i18n="inquiry.lift">Gibt es einen Aufzug?</span><select name="lift"><option value="" data-i18n="inquiry.choose.optional">Bitte auswählen (optional)</option><option value="yes" data-i18n="inquiry.lift.yes">Ja</option><option value="no" data-i18n="inquiry.lift.no">Nein</option><option value="na" data-i18n="inquiry.lift.na">Nicht nötig (z. B. Erdgeschoss / Haus)</option><option value="unknown" data-i18n="inquiry.unknown">Noch unklar</option></select></label>
+            </section>
+            <section class="inquiry-step" data-inquiry-step aria-labelledby="inquiry-step-6" hidden>
+              <h3 id="inquiry-step-6" tabindex="-1" data-i18n="inquiry.zone">Gibt es eine Parkzone oder kostenpflichtiges Parken?</h3>
+              <label class="form-field"><span data-i18n="inquiry.zone">Gibt es eine Parkzone oder kostenpflichtiges Parken?</span><select name="zone"><option value="" data-i18n="inquiry.choose.optional">Bitte auswählen (optional)</option><option value="no" data-i18n="inquiry.zone.no">Nein</option><option value="paid" data-i18n="inquiry.zone.paid">Ja, kostenpflichtige Parkzone</option><option value="resident" data-i18n="inquiry.zone.resident">Ja, Bewohnerparkzone</option><option value="other" data-i18n="inquiry.zone.other">Ja, andere Einschränkung</option><option value="unknown" data-i18n="inquiry.unknown">Noch unklar</option></select></label>
+            </section>
+            <section class="inquiry-step" data-inquiry-step aria-labelledby="inquiry-step-7" hidden>
+              <h3 id="inquiry-step-7" tabindex="-1" data-i18n="inquiry.parking">Wie ist die Parksituation direkt vor Ort?</h3>
+              <label class="form-field"><span data-i18n="inquiry.parking">Wie ist die Parksituation direkt vor Ort?</span><select name="parking"><option value="" data-i18n="inquiry.choose.optional">Bitte auswählen (optional)</option><option value="yes" data-i18n="inquiry.parking.yes">Parken direkt am Einsatzort möglich</option><option value="limited" data-i18n="inquiry.parking.limited">Parken nur eingeschränkt möglich</option><option value="no" data-i18n="inquiry.parking.no">Keine direkte Parkmöglichkeit</option><option value="unknown" data-i18n="inquiry.unknown">Noch unklar</option></select></label>
+            </section>
+            <section class="inquiry-step" data-inquiry-step aria-labelledby="inquiry-step-8" hidden>
+              <h3 id="inquiry-step-8" tabindex="-1" data-i18n="inquiry.date">Wann wäre es dir am liebsten?</h3>
+              <label class="form-field"><span data-i18n="inquiry.date">Wann wäre es dir am liebsten?</span><input name="date" type="text" autocomplete="off"></label>
+              <p class="inquiry-hint" data-i18n="inquiry.date.hint">Ein Wunschtermin oder ein grober Zeitraum genügt – die Angabe ist freiwillig.</p>
+            </section>
+            <section class="inquiry-step" data-inquiry-step aria-labelledby="inquiry-step-9" hidden>
+              <h3 id="inquiry-step-9" tabindex="-1" data-i18n="inquiry.details">Möchtest du noch etwas ergänzen?</h3>
+              <label class="form-field"><span data-i18n="inquiry.details">Möchtest du noch etwas ergänzen?</span><textarea name="details" rows="4"></textarea></label>
+              <p class="inquiry-hint" data-i18n="inquiry.details.hint">Zum Beispiel Maße, Produktlinks oder Besonderheiten. Fotos kannst du später direkt in WhatsApp senden.</p>
+            </section>
           </div>
+          <div class="inquiry-form-actions inquiry-wizard-actions">
+            <button class="button secondary" type="button" data-step-back hidden><span data-i18n="inquiry.back">Zurück</span></button>
+            <button class="button primary" type="button" data-step-next><span data-i18n="inquiry.next">Weiter</span></button>
+            <button class="button whatsapp" type="submit" data-step-submit hidden><span data-i18n="inquiry.submit">WhatsApp-Nachricht erstellen</span></button>
+          </div>
+          <p class="form-privacy"><span data-i18n="inquiry.privacy">Es wird nichts auf dieser Website gespeichert. Vor dem Absenden kannst du die Nachricht in WhatsApp prüfen und ändern.</span></p>
           <p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -557,6 +558,6 @@
     <a href="mailto:kontakt@bengel-montage.de?subject=Montageanfrage&amp;body=Hallo%20BEngel%20Montage%2C%0A%0Aich%20m%C3%B6chte%20gern%20eine%20Montage%20anfragen.%0A%0AWas%20soll%20montiert%20werden%3A%0AOrt%20und%20Etage%3A%0AWunschtermin%3A%0AParkm%C3%B6glichkeit%3A%0AFotos%20oder%20Produktlinks%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe"><span data-i18n="sticky.mail">E-Mail</span></a>
   </div>
 
-  <script src="assets/site.js?v=20260923-2"></script>
+  <script src="assets/site.js?v=20261016-1"></script>
 </body>
 </html>
