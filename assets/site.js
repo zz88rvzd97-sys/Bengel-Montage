@@ -183,9 +183,9 @@
   const originalPlaceholders = {};
   let taskrabbitStats = {
     rating: 5,
-    reviewCount: 22,
-    taskCount: 54,
-    updatedAt: "2026-09-23T10:42:12.000Z"
+    reviewCount: 25,
+    taskCount: 70,
+    updatedAt: "2026-10-12T13:11:09.348Z"
   };
 
   elements.forEach((element) => {
