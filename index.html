@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://www.bengel-montage.de/">
   <meta property="og:image" content="https://www.bengel-montage.de/assets/logo-haupt-small.png">
   <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="assets/style.css?v=20261016-1">
+  <link rel="stylesheet" href="assets/style.css?v=20261016-2">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -93,15 +93,15 @@
   <a class="skip-link" href="#inhalt"><span data-i18n="skip">Zum Inhalt springen</span></a>
 
   <header class="site-header" aria-label="Kopfbereich">
-    <a class="brand" href="#start" aria-label="BEngel Montage Startseite">
+    <a class="brand" href="index.html" aria-label="BEngel Montage Startseite">
       <img src="assets/logo-haupt-small.png" width="210" height="140" alt="BEngel Montage Logo">
     </a>
     <nav class="primary-nav" aria-label="Hauptnavigation">
-      <a href="#leistungen"><span data-i18n="nav.services">Leistungen</span></a>
-      <a href="#ablauf"><span data-i18n="nav.process">Ablauf</span></a>
-      <a href="#gebiet"><span data-i18n="nav.area">Einsatzgebiet</span></a>
-      <a href="#faq"><span data-i18n="nav.faq">FAQ</span></a>
-      <a class="nav-contact" href="#kontakt"><span data-i18n="nav.contact">Kontakt</span></a>
+      <a href="leistungen.html"><span data-i18n="nav.services">Leistungen</span></a>
+      <a href="ablauf.html"><span data-i18n="nav.process">Ablauf &amp; FAQ</span></a>
+      <a href="einsatzgebiet.html"><span data-i18n="nav.area">Einsatzgebiet</span></a>
+      <a href="bewertungen.html">Bewertungen</a>
+      <a class="nav-contact" href="kontakt.html"><span data-i18n="nav.contact">Kontakt</span></a>
       <span class="lang-switch" aria-label="Sprache wählen">
         <button type="button" class="is-active" data-lang="de" aria-pressed="true">DE</button>
         <button type="button" data-lang="en" aria-pressed="false">EN</button>
@@ -151,7 +151,25 @@
       </div>
     </section>
 
-    <section class="section" id="leistungen">
+    <section class="page-hub section" aria-labelledby="hub-title">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">BEngel Montage</p>
+          <h2 id="hub-title">Was möchtest du wissen?</h2>
+          <p>Jeder Bereich hat eine eigene Seite. Wähle einfach das Thema, das dich interessiert.</p>
+        </div>
+        <div class="local-grid">
+          <a class="local-card" href="leistungen.html"><h3>Leistungen</h3><p>Möbel, PAX-Schränke, Regale und kleinere Wandmontagen – mit klaren Angaben, was ich übernehme.</p><span class="text-link">Leistungen ansehen</span></a>
+          <a class="local-card" href="bewertungen.html"><h3>Bewertungen</h3><p>Lies Kundenstimmen und öffne mein öffentliches Taskrabbit-Profil.</p><span class="text-link">Bewertungen ansehen</span></a>
+          <a class="local-card" href="einsatzgebiet.html"><h3>Einsatzgebiet</h3><p>Finde heraus, ob ich auch zu deinem Ort im Havelland oder Berliner Nordwesten komme.</p><span class="text-link">Orte ansehen</span></a>
+          <a class="local-card" href="ablauf.html"><h3>Ablauf &amp; häufige Fragen</h3><p>So läuft eine Anfrage ab – und Antworten auf die wichtigsten Fragen vor dem Termin.</p><span class="text-link">Ablauf kennenlernen</span></a>
+          <a class="local-card" href="anfrage.html"><h3>Preis &amp; Anfrage</h3><p>Erfahre, wovon der Preis abhängt, und beschreibe den Auftrag Schritt für Schritt.</p><span class="text-link">Anfrage vorbereiten</span></a>
+          <a class="local-card" href="kontakt.html"><h3>Kontakt</h3><p>Du erreichst mich telefonisch, per WhatsApp oder E-Mail.</p><span class="text-link">Kontakt aufnehmen</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="leistungen" hidden>
       <div class="section-inner">
         <div class="section-heading">
           <p class="eyebrow">Leistungen</p>
@@ -183,7 +201,7 @@
       </div>
     </section>
 
-    <section class="proof band-dark" id="vorteile">
+    <section class="proof band-dark" id="vorteile" hidden>
       <div class="section-inner">
         <div class="section-heading">
           <p class="eyebrow light"><span data-i18n="benefits.eyebrow">Warum BEngel Montage?</span></p>
@@ -206,7 +224,7 @@
       </div>
     </section>
 
-    <section class="section taskrabbit" id="taskrabbit">
+    <section class="section taskrabbit" id="taskrabbit" hidden>
       <div class="section-inner taskrabbit-layout">
         <div>
           <p class="eyebrow"><span data-i18n="taskrabbit.eyebrow">Auch auf Taskrabbit</span></p>
@@ -241,7 +259,7 @@
       </div>
     </section>
 
-    <section class="section testimonials" id="bewertungen">
+    <section class="section testimonials" id="bewertungen" hidden>
       <div class="section-inner">
         <div class="section-heading testimonial-heading">
           <div>
@@ -282,13 +300,13 @@
       </div>
     </section>
 
-    <section class="section scope" id="leistungsgrenzen">
+    <section class="section scope" id="leistungsgrenzen" hidden>
       <div class="section-inner scope-layout">
         <div class="scope-copy">
           <p class="eyebrow"><span data-i18n="scope.eyebrow">Klare Leistungsgrenzen</span></p>
           <h2><span data-i18n="scope.title">Damit du sofort weißt, ob dein Auftrag passt.</span></h2>
           <p><span data-i18n="scope.text">Mein Schwerpunkt liegt auf Möbelmontage und kleineren Wandmontagen. Folgende Arbeiten übernehme ich nicht:</span></p>
-          <a class="button secondary" href="#kontakt"><span data-i18n="scope.link">Auftrag kurz prüfen lassen</span></a>
+          <a class="button secondary" href="kontakt.html"><span data-i18n="scope.link">Auftrag kurz prüfen lassen</span></a>
         </div>
         <div class="scope-list">
           <article>
@@ -316,13 +334,13 @@
       </div>
     </section>
 
-    <section class="section request" id="preise">
+    <section class="section request" id="preise" hidden>
       <div class="section-inner request-layout">
         <div>
           <p class="eyebrow"><span data-i18n="price.eyebrow">Anfrage &amp; Preis</span></p>
           <h2><span data-i18n="price.title">Der Preis richtet sich nach Aufwand, Auftragsumfang und Anfahrt.</span></h2>
           <p><span data-i18n="price.text">Kleine Aufträge werden meist nach Zeit berechnet. Wenn sich der Aufwand vorher gut einschätzen lässt, ist auch ein Festpreis möglich – zum Beispiel für mehrere Schränke oder ein komplettes Möbelpaket.</span></p>
-          <a class="button primary" href="#anfrage-assistent"><span data-i18n="price.link">Anfrage vorbereiten</span></a>
+          <a class="button primary" href="anfrage.html"><span data-i18n="price.link">Anfrage vorbereiten</span></a>
         </div>
         <aside class="checklist" aria-label="Angaben für eine schnelle Einschätzung">
           <h3><span data-i18n="pricebox.title">Diese Angaben helfen bei der Einschätzung</span></h3>
@@ -337,7 +355,7 @@
       </div>
     </section>
 
-    <section class="section" id="gebiet">
+    <section class="section" id="gebiet" hidden>
       <div class="section-inner area-layout">
         <div>
           <p class="eyebrow"><span data-i18n="area.eyebrow">Einsatzgebiet</span></p>
@@ -351,7 +369,7 @@
       </div>
     </section>
 
-    <section class="section local-search" aria-label="Möbelmontage in der Nähe">
+    <section class="section local-search" aria-label="Möbelmontage in der Nähe" hidden>
       <div class="section-inner">
         <div class="section-heading">
           <p class="eyebrow"><span data-i18n="local.eyebrow">In deiner Nähe</span></p>
@@ -377,7 +395,7 @@
       </div>
     </section>
 
-    <section class="section process" id="ablauf">
+    <section class="section process" id="ablauf" hidden>
       <div class="section-inner">
         <div class="section-heading">
           <p class="eyebrow"><span data-i18n="process.eyebrow">Ablauf</span></p>
@@ -400,7 +418,7 @@
       </div>
     </section>
 
-    <section class="section faq" id="faq">
+    <section class="section faq" id="faq" hidden>
       <div class="section-inner">
         <div class="section-heading">
           <p class="eyebrow"><span data-i18n="faq.eyebrow">Häufige Fragen</span></p>
@@ -431,7 +449,7 @@
       </div>
     </section>
 
-    <section class="section inquiry-helper" id="anfrage-assistent" aria-labelledby="inquiry-title">
+    <section class="section inquiry-helper" id="anfrage-assistent" aria-labelledby="inquiry-title" hidden>
       <div class="section-inner inquiry-helper-layout">
         <div class="inquiry-helper-copy">
           <p class="eyebrow"><span data-i18n="inquiry.eyebrow">Anfrage-Assistent</span></p>
@@ -512,7 +530,7 @@
       </div>
     </section>
 
-    <section class="contact" id="kontakt">
+    <section class="contact" id="kontakt" hidden>
       <div class="section-inner contact-layout">
         <div>
           <p class="eyebrow light"><span data-i18n="contact.eyebrow">Kontakt</span></p>
@@ -538,12 +556,17 @@
   </main>
 
   <footer class="site-footer">
-    <a class="footer-brand" href="#start" aria-label="Zurück zum Seitenanfang">
+    <a class="footer-brand" href="index.html" aria-label="Zurück zur Startseite">
       <img src="assets/logo-gold-small.png" width="130" height="87" alt="BEngel Montage Logo gold">
     </a>
     <div class="footer-copy">
       <span><span data-i18n="footer.text">© 2026 BEngel Montage · Möbelmontage und Aufbauservice</span></span>
       <nav class="footer-links" aria-label="Rechtliche Informationen">
+        <a href="leistungen.html">Leistungen</a>
+        <a href="bewertungen.html">Bewertungen</a>
+        <a href="ablauf.html">Ablauf &amp; FAQ</a>
+        <a href="anfrage.html">Preis &amp; Anfrage</a>
+        <a href="kontakt.html">Kontakt</a>
         <a href="pax-schrankmontage.html"><span data-i18n="footer.pax">PAX &amp; Schränke</span></a>
         <a href="einsatzgebiet.html"><span data-i18n="footer.area">Einsatzgebiet</span></a>
         <a href="impressum.html"><span data-i18n="footer.imprint">Impressum</span></a>
@@ -558,6 +581,6 @@
     <a href="mailto:kontakt@bengel-montage.de?subject=Montageanfrage&amp;body=Hallo%20BEngel%20Montage%2C%0A%0Aich%20m%C3%B6chte%20gern%20eine%20Montage%20anfragen.%0A%0AWas%20soll%20montiert%20werden%3A%0AOrt%20und%20Etage%3A%0AWunschtermin%3A%0AParkm%C3%B6glichkeit%3A%0AFotos%20oder%20Produktlinks%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe"><span data-i18n="sticky.mail">E-Mail</span></a>
   </div>
 
-  <script src="assets/site.js?v=20261016-1"></script>
+  <script src="assets/site.js?v=20261016-2"></script>
 </body>
 </html>
