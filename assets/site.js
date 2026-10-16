@@ -3,7 +3,7 @@
     en: {
       "skip": "Skip to content",
       "nav.services": "Services",
-      "nav.process": "Process",
+      "nav.process": "Process & FAQ",
       "nav.area": "Service area",
       "nav.faq": "FAQ",
       "nav.contact": "Contact",

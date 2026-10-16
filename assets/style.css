@@ -1995,3 +1995,6 @@ html[data-lang="en"] .legal-english {
     height: 17px;
   }
 }
+:where([hidden]) {
+  display: none !important;
+}
