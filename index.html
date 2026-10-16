@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://www.bengel-montage.de/">
   <meta property="og:image" content="https://www.bengel-montage.de/assets/logo-haupt-small.png">
   <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="assets/style.css?v=20260923-1">
+  <link rel="stylesheet" href="assets/style.css?v=20260923-2">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -167,6 +167,7 @@
             <span class="card-kicker">02</span>
             <h3><span data-i18n="service2.title">PAX &amp; Schranksysteme</span></h3>
             <p><span data-i18n="service2.text">Ich montiere Korpusse, Türen, Schubladen, Einlegeböden, Kleiderstangen und Innenausstattung und richte das Schranksystem sorgfältig aus.</span></p>
+            <a class="text-link service-detail-link" href="pax-schrankmontage.html"><span data-i18n="service2.link">Mehr zur PAX- und Schrankmontage</span></a>
           </article>
           <article class="service-card">
             <span class="card-kicker">03</span>
@@ -321,7 +322,7 @@
           <p class="eyebrow"><span data-i18n="price.eyebrow">Anfrage &amp; Preis</span></p>
           <h2><span data-i18n="price.title">Der Preis richtet sich nach Aufwand, Auftragsumfang und Anfahrt.</span></h2>
           <p><span data-i18n="price.text">Kleine Aufträge werden meist nach Zeit berechnet. Wenn sich der Aufwand vorher gut einschätzen lässt, ist auch ein Festpreis möglich – zum Beispiel für mehrere Schränke oder ein komplettes Möbelpaket.</span></p>
-          <a class="button primary" href="mailto:kontakt@bengel-montage.de?subject=Montageanfrage&amp;body=Hallo%20BEngel%20Montage%2C%0A%0Aich%20m%C3%B6chte%20gern%20eine%20Montage%20anfragen.%0A%0AWas%20soll%20montiert%20werden%3A%0AOrt%20und%20Etage%3A%0AWunschtermin%3A%0AParkm%C3%B6glichkeit%3A%0AFotos%20oder%20Produktlinks%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe"><span data-i18n="price.link">Unverbindlich anfragen</span></a>
+          <a class="button primary" href="#anfrage-assistent"><span data-i18n="price.link">Anfrage vorbereiten</span></a>
         </div>
         <aside class="checklist" aria-label="Angaben für eine schnelle Einschätzung">
           <h3><span data-i18n="pricebox.title">Diese Angaben helfen bei der Einschätzung</span></h3>
@@ -430,6 +431,86 @@
       </div>
     </section>
 
+    <section class="section inquiry-helper" id="anfrage-assistent" aria-labelledby="inquiry-title">
+      <div class="section-inner inquiry-helper-layout">
+        <div class="inquiry-helper-copy">
+          <p class="eyebrow"><span data-i18n="inquiry.eyebrow">Anfrage-Assistent</span></p>
+          <h2 id="inquiry-title"><span data-i18n="inquiry.title">In wenigen Angaben zur fertigen WhatsApp-Anfrage</span></h2>
+          <p><span data-i18n="inquiry.text">Wähle aus, was montiert werden soll, und ergänze die wichtigsten Eckdaten. Daraus wird eine übersichtliche Nachricht erstellt, die du vor dem Senden noch ändern kannst.</span></p>
+          <ul class="plain-check-list inquiry-benefits">
+            <li><span data-i18n="inquiry.benefit1">Kein Konto und keine Anmeldung nötig</span></li>
+            <li><span data-i18n="inquiry.benefit2">Fotos kannst du anschließend im WhatsApp-Chat ergänzen</span></li>
+            <li><span data-i18n="inquiry.benefit3">Die Angaben werden erst beim Öffnen von WhatsApp übertragen</span></li>
+          </ul>
+        </div>
+
+        <form class="inquiry-form" id="inquiry-form">
+          <div class="inquiry-form-grid">
+            <label class="form-field">
+              <span data-i18n="inquiry.job">Was soll montiert werden?</span>
+              <select name="job" required>
+                <option value="" data-i18n="inquiry.choose">Bitte auswählen</option>
+                <option value="pax" data-i18n="inquiry.job.pax">PAX- oder Schrankmontage</option>
+                <option value="furniture" data-i18n="inquiry.job.furniture">Andere Möbelmontage</option>
+                <option value="wall" data-i18n="inquiry.job.wall">Kleinere Wandmontage</option>
+                <option value="several" data-i18n="inquiry.job.several">Mehrere unterschiedliche Arbeiten</option>
+                <option value="other" data-i18n="inquiry.job.other">Etwas anderes</option>
+              </select>
+            </label>
+
+            <label class="form-field">
+              <span data-i18n="inquiry.scope">Anzahl oder Umfang</span>
+              <input name="scope" type="text" autocomplete="off">
+            </label>
+
+            <label class="form-field">
+              <span data-i18n="inquiry.location">Ort und Postleitzahl</span>
+              <input name="location" type="text" autocomplete="postal-code" required>
+            </label>
+
+            <label class="form-field">
+              <span data-i18n="inquiry.floor">Etage und Aufzug</span>
+              <select name="floor">
+                <option value="" data-i18n="inquiry.choose.optional">Bitte auswählen (optional)</option>
+                <option value="ground" data-i18n="inquiry.floor.ground">Erdgeschoss</option>
+                <option value="elevator" data-i18n="inquiry.floor.elevator">Etage mit Aufzug</option>
+                <option value="stairs" data-i18n="inquiry.floor.stairs">Etage ohne Aufzug</option>
+                <option value="house" data-i18n="inquiry.floor.house">Haus</option>
+                <option value="unknown" data-i18n="inquiry.unknown">Noch unklar</option>
+              </select>
+            </label>
+
+            <label class="form-field">
+              <span data-i18n="inquiry.date">Wunschtermin oder Zeitraum</span>
+              <input name="date" type="text" autocomplete="off">
+            </label>
+
+            <label class="form-field">
+              <span data-i18n="inquiry.parking">Parkmöglichkeit</span>
+              <select name="parking">
+                <option value="" data-i18n="inquiry.choose.optional">Bitte auswählen (optional)</option>
+                <option value="yes" data-i18n="inquiry.parking.yes">Direkt am Einsatzort</option>
+                <option value="limited" data-i18n="inquiry.parking.limited">Nur eingeschränkt</option>
+                <option value="no" data-i18n="inquiry.parking.no">Keine direkte Parkmöglichkeit</option>
+                <option value="unknown" data-i18n="inquiry.unknown">Noch unklar</option>
+              </select>
+            </label>
+
+            <label class="form-field form-field-wide">
+              <span data-i18n="inquiry.details">Weitere Angaben oder Produktlinks</span>
+              <textarea name="details" rows="4"></textarea>
+            </label>
+          </div>
+
+          <div class="inquiry-form-actions">
+            <button class="button whatsapp" type="submit"><span data-i18n="inquiry.submit">WhatsApp-Nachricht erstellen</span></button>
+            <p class="form-privacy"><span data-i18n="inquiry.privacy">Es wird nichts auf dieser Website gespeichert. Vor dem Absenden kannst du die Nachricht in WhatsApp prüfen und ändern.</span></p>
+          </div>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
     <section class="contact" id="kontakt">
       <div class="section-inner contact-layout">
         <div>
@@ -462,6 +543,7 @@
     <div class="footer-copy">
       <span><span data-i18n="footer.text">© 2026 BEngel Montage · Möbelmontage und Aufbauservice</span></span>
       <nav class="footer-links" aria-label="Rechtliche Informationen">
+        <a href="pax-schrankmontage.html"><span data-i18n="footer.pax">PAX &amp; Schränke</span></a>
         <a href="einsatzgebiet.html"><span data-i18n="footer.area">Einsatzgebiet</span></a>
         <a href="impressum.html"><span data-i18n="footer.imprint">Impressum</span></a>
         <a href="datenschutz.html"><span data-i18n="footer.privacy">Datenschutz</span></a>
@@ -475,6 +557,6 @@
     <a href="mailto:kontakt@bengel-montage.de?subject=Montageanfrage&amp;body=Hallo%20BEngel%20Montage%2C%0A%0Aich%20m%C3%B6chte%20gern%20eine%20Montage%20anfragen.%0A%0AWas%20soll%20montiert%20werden%3A%0AOrt%20und%20Etage%3A%0AWunschtermin%3A%0AParkm%C3%B6glichkeit%3A%0AFotos%20oder%20Produktlinks%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe"><span data-i18n="sticky.mail">E-Mail</span></a>
   </div>
 
-  <script src="assets/site.js?v=20260923-1"></script>
+  <script src="assets/site.js?v=20260923-2"></script>
 </body>
 </html>
