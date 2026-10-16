@@ -48,7 +48,7 @@
     const data = new FormData(form);
     const optionText = (name) => {
       const field = form.elements[name];
-      return field?.selectedOptions?.[0]?.textContent.trim() || "";
+      return field?.selectedOptions?.[0]?.value ? field.selectedOptions[0].textContent.trim() : "";
     };
     const details = [
       "Neue Montageanfrage über die Website",
