@@ -1035,6 +1035,55 @@ h3 {
   box-shadow: var(--shadow);
 }
 
+.inquiry-progress {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.inquiry-step-count {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.inquiry-progress-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e7ece9;
+}
+
+.inquiry-progress-track span {
+  display: block;
+  width: 11.11%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--gold);
+  transition: width 180ms ease;
+}
+
+.inquiry-step h3 {
+  margin: 0 0 20px;
+  color: var(--green);
+  font-size: clamp(1.25rem, 2.7vw, 1.65rem);
+}
+
+.inquiry-step h3:focus {
+  outline: none;
+}
+
+.inquiry-step[hidden] {
+  display: none;
+}
+
+.inquiry-hint {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
 .inquiry-form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1087,6 +1136,15 @@ h3 {
   margin-top: 22px;
   padding-top: 22px;
   border-top: 1px solid var(--line);
+}
+
+.inquiry-wizard-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inquiry-wizard-actions [hidden] {
+  display: none;
 }
 
 .inquiry-form .button {
@@ -1840,6 +1898,10 @@ html[data-lang="en"] .legal-english {
 
   .inquiry-form-actions .button {
     width: 100%;
+  }
+
+  .inquiry-wizard-actions {
+    display: grid;
   }
 
   .service-visual {
