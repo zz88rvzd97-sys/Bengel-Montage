@@ -2103,3 +2103,9 @@ html[data-lang="en"] .legal-english {
 .sticky-cta a:first-child { background: #756a54; color: #fff; }
 .sticky-cta a + a { background: #b5a077; color: #403b33; border-color: #a6936a; }
 .sticky-cta a:last-child { background: #f8f6f1; color: #615a4d; }
+/* WhatsApp-Symbol im Originalgruen, passend zum warmen Goldton der Buttons */
+.button.whatsapp::before,
+.contact-data .whatsapp-link::before,
+.sticky-cta .whatsapp-link::before {
+  background: #25d366;
+}
