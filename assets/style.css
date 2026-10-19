@@ -2068,3 +2068,27 @@ html[data-lang="en"] .legal-english {
 :where([hidden]) {
   display: none !important;
 }
+/* Ruhigere Logo-Farbpalette */
+:root {
+  --ink: #403b33;
+  --muted: #777064;
+  --paper: #f6f3ed;
+  --surface: #fbfaf7;
+  --line: #e7e1d7;
+  --gold: #927d55;
+  --gold-bright: #b9a77f;
+  --gold-soft: #f0eadd;
+  --green: #615a4d;
+  --green-2: #756d5f;
+  --blue: #827762;
+  --clay: #968264;
+  --shadow: 0 16px 38px rgba(64, 59, 51, 0.055);
+}
+.button.primary { background: #c0ad85; color: #403b33; border-color: #a6936a; }
+.button.primary:hover, .button.primary:focus-visible { background: #b3a077; color: #363128; }
+.button.secondary { background: #f8f6f1; border-color: #d9d3c8; }
+.site-footer { background: #eae4d8; color: #494439; }
+.site-footer .footer-links a { color: #746143; }
+.area-origin-card, .area-region-card, .request-layout { background: #fbfaf7; box-shadow: 0 12px 30px rgba(64, 59, 51, 0.045); }
+.area-region-card-home { background: #f8f5ed; }
+.area-place-list li { background: #f6f3ec; color: #4b463d; border-color: #e6e0d5; }
