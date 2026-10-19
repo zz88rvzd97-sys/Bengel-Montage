@@ -2115,3 +2115,11 @@ html[data-lang="en"] .legal-english {
 .sticky-cta .whatsapp-link::before {
   background: #60765e;
 }
+
+/* Einheitliche WhatsApp-Iconfarbe auf allen Seiten und Button-Varianten. */
+.button.whatsapp::before,
+.button[href*="wa.me"]::before,
+.contact-data .whatsapp-link::before,
+.sticky-cta .whatsapp-link::before {
+  background: #60765e;
+}
