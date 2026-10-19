@@ -2109,3 +2109,9 @@ html[data-lang="en"] .legal-english {
 .sticky-cta .whatsapp-link::before {
   background: #25d366;
 }
+/* WhatsApp-Gruen gedämpft, damit es besser mit dem warmen Gold harmoniert */
+.button.whatsapp::before,
+.contact-data .whatsapp-link::before,
+.sticky-cta .whatsapp-link::before {
+  background: #60765e;
+}
