@@ -2092,3 +2092,14 @@ html[data-lang="en"] .legal-english {
 .area-origin-card, .area-region-card, .request-layout { background: #fbfaf7; box-shadow: 0 12px 30px rgba(64, 59, 51, 0.045); }
 .area-region-card-home { background: #f8f5ed; }
 .area-place-list li { background: #f6f3ec; color: #4b463d; border-color: #e6e0d5; }
+/* Weitere Flächen harmonisieren und die Ortskarten sanfter absetzen. */
+.location-hero { background: radial-gradient(circle at 86% 18%, rgba(185, 167, 127, 0.08), transparent 31%), linear-gradient(135deg, #f8f6f1 0%, #f4f1ea 100%); }
+.location-quick-card, .info-panel, .location-overview-card { background: #f9f7f2; border-color: #e4ded2; box-shadow: 0 10px 24px rgba(64, 59, 51, 0.04); }
+.area-tags span, .nav-contact, .lang-switch { background: #f7f4ed; border-color: #e3dccd; }
+.button.whatsapp { background: #b5a077; color: #403b33; }
+.contact, .legal-hero, .band-dark { background: #eae4d8; color: #494439; }
+.contact h2, .legal-hero h1, .band-dark h2 { color: #403b33; }
+.contact p, .legal-hero p:last-child, .proof-grid p { color: #6e675b; }
+.sticky-cta a:first-child { background: #756a54; color: #fff; }
+.sticky-cta a + a { background: #b5a077; color: #403b33; border-color: #a6936a; }
+.sticky-cta a:last-child { background: #f8f6f1; color: #615a4d; }
