@@ -80,7 +80,8 @@
       actions.hidden = false;
     } else {
       result.classList.add("is-out");
-      message = `Die PLZ ${postalCode} liegt außerhalb meines Einsatzgebiets. Dort kann ich derzeit leider keine Aufträge übernehmen.`;
+      message = `Die PLZ ${postalCode} liegt außerhalb meines regulären Einsatzgebiets. Je nach Auftrag und Entfernung kann eine Anfahrt nach Absprache trotzdem möglich sein. Fragen Sie gern an; die Anfahrtskosten teile ich Ihnen im Angebot mit.`;
+      actions.hidden = false;
     }
 
     result.textContent = message;
