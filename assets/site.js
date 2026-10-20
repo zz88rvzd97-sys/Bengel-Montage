@@ -23,7 +23,7 @@
       "visual.ai": "AI-generated illustrative image",
       "intro.eyebrow": "Personal and straightforward",
       "intro.title": "You describe the job – I take care of the planning and assembly.",
-      "intro.text": "Whether it is a single wardrobe, several pieces of furniture or a smaller wall-mounting job, we clarify the work, what is already on site and the likely time needed before the appointment.",
+      "intro.text": "Whether it is a single wardrobe, several pieces of furniture or a smaller wall-mounting job, we clarify the work, what is already on site and the likely time needed before the appointment. Depending on the job, you will receive a fixed-price or hourly-rate offer. Travel costs are added and shown in the offer, so you know the billing method and total before you commit to the booking.",
       "services.title": "Assembly services I provide",
       "service1.title": "Furniture assembly",
       "service1.text": "I assemble wardrobes, chests of drawers, shelves, beds, tables, sideboards and other furniture, then align everything carefully.",
