@@ -76,11 +76,11 @@
       actions.hidden = false;
     } else if (byAgreement.has(postalCode)) {
       result.classList.add("is-buffer");
-      message = `Die PLZ ${postalCode} liegt in der Randzone. Eine Anfahrt kann nach vorheriger Absprache möglich sein – fragen Sie mich gern an.`;
+      message = `Die PLZ ${postalCode} liegt in der Randzone. Ob ich Ihren Auftrag dort übernehmen kann, kläre ich gern auf Anfrage.`;
       actions.hidden = false;
     } else {
       result.classList.add("is-out");
-      message = `Die PLZ ${postalCode} liegt außerhalb meines Einsatzgebiets. Dort kann ich derzeit leider keine Anfahrt anbieten.`;
+      message = `Die PLZ ${postalCode} liegt außerhalb meines Einsatzgebiets. Dort kann ich derzeit leider keine Aufträge übernehmen.`;
     }
 
     result.textContent = message;
