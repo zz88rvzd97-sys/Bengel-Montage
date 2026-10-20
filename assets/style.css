@@ -2231,3 +2231,26 @@ html[data-lang="en"] .legal-english {
   .page-symbol-image img { height: 170px; }
   .review-platform-grid { grid-template-columns: 1fr; }
 }
+
+/* Give page imagery enough presence to feel intentional rather than thumbnail-sized. */
+.page-symbol-image img {
+  height: clamp(250px, 27vw, 340px);
+}
+
+/* Keep both review platforms visually balanced, with Google's official mark at the same size. */
+.google-platform {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.platform-google-mark {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  object-fit: contain;
+}
+
+@media (max-width: 680px) {
+  .page-symbol-image img { height: 220px; }
+}
