@@ -2166,3 +2166,11 @@ html[data-lang="en"] .legal-english {
 .sticky-cta { background: rgba(247, 244, 238, 0.96); border-color: var(--line); }
 .sticky-cta a, .sticky-cta a + a, .sticky-cta a:last-child { border: 1px solid transparent; }
 .sticky-cta a[href^="mailto:"] { border-color: #c9b895; }
+
+
+/* Auf Tablet und Smartphone den geteilten Desktop-Hintergrund vermeiden. */
+@media (max-width: 980px) {
+  .hero {
+    background: #fbf9f4;
+  }
+}
