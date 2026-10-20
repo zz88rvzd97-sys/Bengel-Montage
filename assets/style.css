@@ -2174,3 +2174,60 @@ html[data-lang="en"] .legal-english {
     background: #fbf9f4;
   }
 }
+
+/* Dezente Symbolbilder geben den Unterseiten mehr Bildwirkung, ohne eigene Auftragsfotos vorzutäuschen. */
+.page-symbol-image {
+  margin: 0 0 20px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #e9e4da;
+}
+.page-symbol-image img {
+  display: block;
+  width: 100%;
+  height: clamp(150px, 17vw, 220px);
+  object-fit: cover;
+}
+.page-symbol-image figcaption {
+  padding: 7px 11px 8px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.review-platform-section { background: #f3f0e9; }
+.review-platform-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.review-platform-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.review-platform-card > img {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  object-fit: contain;
+}
+.review-platform-card h3 { margin: 5px 0 8px; font-size: 1.2rem; }
+.review-platform-card p { margin: 0 0 12px; color: var(--muted); }
+.platform-wordmark {
+  min-width: 58px;
+  color: var(--ink);
+  font-size: 1.3rem;
+  font-weight: 750;
+  letter-spacing: -0.07em;
+}
+.google-platform { flex-direction: column; gap: 12px; }
+.google-platform .platform-wordmark { margin-bottom: 2px; }
+@media (max-width: 680px) {
+  .page-symbol-image { margin-bottom: 16px; }
+  .page-symbol-image img { height: 170px; }
+  .review-platform-grid { grid-template-columns: 1fr; }
+}
