@@ -2272,3 +2272,5 @@ html[data-lang="en"] .legal-english {
 @media (max-width: 680px) {
   .location-quick-card > .page-symbol-image img { height: 250px; }
 }
+
+.review-platform-card > .platform-google-mark { width: 68px; height: 68px; flex: 0 0 68px; }
