@@ -1790,6 +1790,158 @@ html[data-lang="en"] .legal-english {
   margin-top: 24px;
 }
 
+.postcode-section {
+  background: var(--paper);
+}
+
+.postcode-checker {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: clamp(22px, 4vw, 36px);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.postcode-input-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  gap: 12px;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.postcode-input-row input {
+  min-width: 0;
+  min-height: 52px;
+  padding: 12px 15px;
+  border: 1px solid #c7c0b4;
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.postcode-input-row input:focus-visible {
+  border-color: var(--gold);
+  outline: 3px solid rgba(146, 118, 74, 0.2);
+}
+
+.postcode-hint,
+.postcode-attribution {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.postcode-hint {
+  margin: 12px 0 0;
+}
+
+.postcode-result {
+  margin-top: 22px;
+  padding: 17px 18px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--gold);
+  border-radius: 6px;
+  background: #f8f5ee;
+  color: var(--ink);
+  font-size: 1.02rem;
+  font-weight: 750;
+  line-height: 1.55;
+}
+
+.postcode-result[hidden],
+.postcode-actions[hidden] {
+  display: none;
+}
+
+.postcode-result.is-core {
+  border-left-color: #526c56;
+  background: #f1f5ef;
+}
+
+.postcode-result.is-buffer {
+  border-left-color: #a67b35;
+  background: #faf5e9;
+}
+
+.postcode-result.is-out,
+.postcode-result.is-invalid {
+  border-left-color: #8b6255;
+  background: #f7f0ed;
+}
+
+.postcode-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+  margin-top: 15px;
+}
+
+.postcode-legend {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.postcode-legend-card {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  min-height: 124px;
+  padding: 19px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.postcode-legend-card h3 {
+  margin: 0 0 7px;
+  font-size: 1rem;
+}
+
+.postcode-legend-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.postcode-status-dot {
+  flex: 0 0 auto;
+  width: 11px;
+  height: 11px;
+  margin-top: 4px;
+  border-radius: 50%;
+  background: #526c56;
+}
+
+.postcode-legend-edge .postcode-status-dot {
+  background: #a67b35;
+}
+
+.postcode-legend-out .postcode-status-dot {
+  background: #8b6255;
+}
+
+.postcode-attribution {
+  max-width: 820px;
+  margin: 15px auto 0;
+  font-size: 0.77rem;
+}
+
+.postcode-attribution a {
+  color: inherit;
+  text-underline-offset: 2px;
+}
+
 .local-service-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -2264,6 +2416,7 @@ html[data-lang="en"] .legal-english {
 .location-quick-card > .page-symbol-image img {
   height: clamp(250px, 30vw, 360px);
 }
+
 .platform-google-mark {
   width: 68px;
   height: 68px;
@@ -2274,3 +2427,22 @@ html[data-lang="en"] .legal-english {
 }
 
 .review-platform-card > .platform-google-mark { width: 68px; height: 68px; flex: 0 0 68px; }
+
+@media (max-width: 680px) {
+  .postcode-input-row {
+    grid-template-columns: 1fr;
+  }
+
+  .postcode-input-row .button,
+  .postcode-actions .button {
+    width: 100%;
+  }
+
+  .postcode-legend {
+    grid-template-columns: 1fr;
+  }
+
+  .postcode-legend-card {
+    min-height: auto;
+  }
+}
