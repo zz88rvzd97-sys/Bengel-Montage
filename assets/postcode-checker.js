@@ -76,7 +76,7 @@
       actions.hidden = false;
     } else if (byAgreement.has(postalCode)) {
       result.classList.add("is-buffer");
-      message = `Die PLZ ${postalCode} liegt in der Randzone. Ob ich Ihren Auftrag dort übernehmen kann, kläre ich gern auf Anfrage.`;
+      message = `Die PLZ ${postalCode} liegt in der Randzone. Ob ich Ihren Auftrag dort übernehmen kann, kläre ich gern auf Anfrage. Den Anfahrtskostenbeitrag teile ich Ihnen vorab mit.`;
       actions.hidden = false;
     } else {
       result.classList.add("is-out");
