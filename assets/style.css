@@ -2123,3 +2123,46 @@ html[data-lang="en"] .legal-english {
 .sticky-cta .whatsapp-link::before {
   background: #60765e;
 }
+
+
+/* Einheitliche Farbwelt und unterscheidbare Kontaktaktionen */
+:root {
+  --ink: #302c27;
+  --muted: #625d54;
+  --paper: #f7f4ee;
+  --surface: #fffefa;
+  --line: #ded8cc;
+  --gold: #92764a;
+  --gold-soft: #eadfc9;
+  --green: #39372f;
+  --green-2: #68725b;
+  --blue: #74664d;
+  --clay: #826b47;
+  --action-call: #39372f;
+  --action-whatsapp: #356b50;
+  --action-email: #e8dcc5;
+  --shadow: 0 18px 44px rgba(48, 44, 39, 0.09);
+}
+
+.site-header { background: rgba(247, 244, 238, 0.95); border-color: var(--line); }
+.primary-nav a { color: var(--ink); }
+.primary-nav a:hover, .primary-nav a:focus-visible, .location-page-nav a:hover, .location-page-nav a:focus-visible { background: rgba(130, 107, 71, 0.12); }
+.nav-contact { border-color: rgba(130, 107, 71, 0.34); background: var(--surface); }
+.hero { background: linear-gradient(90deg, #fbf9f4 0%, #fbf9f4 64%, #eee7da 64%, #eee7da 100%); }
+.taskrabbit, .scope, .request, .inquiry-email-note, .local-search, .legal-note { background-color: #f1ece2; }
+.inquiry-send-option:has(input:checked) { border-color: var(--green-2); background: #f1f0e9; box-shadow: inset 0 0 0 1px var(--green-2); }
+.inquiry-progress-track { background: #e5e0d6; }
+.eyebrow { color: var(--clay); }
+
+.button.primary[href^="tel:"], .button[href^="tel:"], .sticky-cta a[href^="tel:"] { background: var(--action-call); color: #fff; }
+.button.whatsapp, .button[href*="wa.me"], .sticky-cta .whatsapp-link { background: var(--action-whatsapp); color: #fff; }
+.button[href^="mailto:"], .button.primary[href^="mailto:"], .button.secondary[href^="mailto:"], .sticky-cta a[href^="mailto:"] { background: var(--action-email); color: var(--ink); border: 1px solid #c9b895; }
+.button.secondary:not([href^="mailto:"]):not([href^="tel:"]):not(.inverse) { background: var(--surface); color: var(--ink); border-color: #c9c1b4; }
+.button[href^="tel:"]::before, .contact-data a[href^="tel:"]::before, .sticky-cta a[href^="tel:"]::before, .button[href^="mailto:"]::before, .contact-data a[href^="mailto:"]::before, .sticky-cta a[href^="mailto:"]::before, .button[href*="wa.me"]::before, .contact-data .whatsapp-link::before, .sticky-cta .whatsapp-link::before { background-color: currentColor; }
+.contact-data a.whatsapp-link { color: var(--action-whatsapp); }
+.legal-page-main, .legal-page-body { background: var(--paper); }
+.site-footer { background: #39372f; color: #fff; }
+.site-footer .footer-links a { color: #f0eadd; }
+.sticky-cta { background: rgba(247, 244, 238, 0.96); border-color: var(--line); }
+.sticky-cta a, .sticky-cta a + a, .sticky-cta a:last-child { border: 1px solid transparent; }
+.sticky-cta a[href^="mailto:"] { border-color: #c9b895; }
