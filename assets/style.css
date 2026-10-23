@@ -2564,3 +2564,206 @@ p { max-width: 72ch; }
 .location-hero {
   padding: clamp(24px, 4vw, 48px) 0;
 }
+
+/* Eigenständige, markengerechte Infografiken statt desselben Symbolfotos auf mehreren Seiten. */
+.location-quick-card > .flow-visual,
+.location-quick-card > .request-visual {
+  margin: -24px calc(-1 * clamp(20px, 2.4vw, 30px)) 20px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  overflow: hidden;
+}
+
+.flow-visual {
+  padding: clamp(20px, 2.4vw, 28px);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 92% 12%, rgba(146, 118, 74, 0.16), transparent 28%),
+    linear-gradient(145deg, #eee8dc 0%, #e5e0d4 100%);
+}
+
+.flow-visual-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(48, 44, 39, 0.12);
+}
+
+.flow-visual-mark {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  place-items: center;
+  border: 1px solid rgba(146, 118, 74, 0.35);
+  border-radius: 15px;
+  color: #765e35;
+  background: rgba(255, 254, 250, 0.7);
+  font-size: 0.88rem;
+  font-weight: 850;
+  letter-spacing: -0.04em;
+}
+
+.flow-visual-heading > div { display: grid; gap: 3px; }
+.flow-visual-heading .card-kicker { margin: 0; }
+.flow-visual-heading strong { font-size: 1.08rem; }
+
+.flow-visual-steps {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.flow-visual-steps::before {
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 17px;
+  width: 1px;
+  background: rgba(118, 94, 53, 0.28);
+  content: "";
+}
+
+.flow-visual-steps li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.flow-step-number {
+  z-index: 1;
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  border: 1px solid rgba(146, 118, 74, 0.3);
+  border-radius: 50%;
+  color: #765e35;
+  background: #f5f1e9;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.flow-visual-steps li div { display: grid; gap: 2px; }
+.flow-visual-steps strong { font-size: 0.94rem; }
+.flow-visual-steps small { color: var(--muted); font-size: 0.82rem; }
+
+.request-visual {
+  padding: clamp(18px, 2.4vw, 26px);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(104, 114, 91, 0.14), transparent 34%),
+    linear-gradient(145deg, #e9e8df 0%, #e3e2d8 100%);
+}
+
+.request-visual-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #69685f;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+}
+
+.request-visual-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #738064;
+  box-shadow: 0 0 0 4px rgba(115, 128, 100, 0.13);
+}
+
+.request-visual-status {
+  margin-left: auto;
+  padding: 5px 8px;
+  border: 1px solid rgba(104, 114, 91, 0.2);
+  border-radius: 999px;
+  color: #58634d;
+  background: rgba(255, 254, 250, 0.58);
+  font-size: 0.68rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.request-visual-body {
+  margin-top: 17px;
+  padding: clamp(16px, 2vw, 22px);
+  border: 1px solid rgba(48, 44, 39, 0.09);
+  border-radius: 12px;
+  background: rgba(255, 254, 250, 0.88);
+  box-shadow: 0 8px 22px rgba(48, 44, 39, 0.06);
+}
+
+.request-visual-label,
+.request-visual-fields small {
+  display: block;
+  color: #777166;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+}
+
+.request-visual-main {
+  display: block;
+  margin-top: 5px;
+  font-size: clamp(1.08rem, 1.7vw, 1.3rem);
+}
+
+.request-visual-fields {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.request-visual-fields > span {
+  min-width: 0;
+  padding: 10px 11px;
+  border: 1px solid #e5e0d6;
+  border-radius: 8px;
+  background: #fbfaf6;
+}
+
+.request-visual-fields b {
+  display: block;
+  overflow: hidden;
+  margin-top: 5px;
+  font-size: 0.78rem;
+  font-weight: 650;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.request-visual-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+  color: #56624d;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.request-visual-footer span {
+  display: grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #738064;
+  font-size: 0.7rem;
+}
+
+@media (max-width: 720px) {
+  .location-quick-card > .flow-visual,
+  .location-quick-card > .request-visual {
+    margin-right: calc(-1 * clamp(20px, 2.4vw, 30px));
+    margin-left: calc(-1 * clamp(20px, 2.4vw, 30px));
+  }
+}
