@@ -2807,28 +2807,64 @@ p { max-width: 72ch; }
   }
 }
 
-/* Auch auf kleinen Displays bleibt die Navigation kompakt und gut lesbar. */
+/* Auf schmalen Displays sind alle Navigationspunkte direkt sichtbar. */
 @media (max-width: 680px) {
   .site-header { gap: 5px; padding: 7px 15px 9px; }
   .location-page-nav,
   .primary-nav {
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-content: stretch;
     width: 100%;
-    gap: 2px;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-    scrollbar-width: thin;
-    scrollbar-color: #b7a785 transparent;
+    gap: 3px;
+    overflow: visible;
     font-size: 12px;
-    white-space: nowrap;
-    -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 20px), transparent 100%);
-    mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 20px), transparent 100%);
+    white-space: normal;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
   .location-page-nav a,
-  .primary-nav a { flex: 0 0 auto; padding: 6px 5px; }
-  .location-page-nav::-webkit-scrollbar,
-  .primary-nav::-webkit-scrollbar { height: 3px; }
-  .location-page-nav::-webkit-scrollbar-thumb,
-  .primary-nav::-webkit-scrollbar-thumb { border-radius: 999px; background: #b7a785; }
+  .primary-nav a {
+    min-width: 0;
+    padding: 7px 3px;
+    text-align: center;
+    line-height: 1.2;
+  }
+}
+
+@media (max-width: 360px) {
+  .location-page-nav,
+  .primary-nav { font-size: 11px; }
+}
+
+/* Kleine, textbasierte Themenkarten ergänzen Seiten, ohne Symbolfotos zu wiederholen. */
+.topic-visual {
+  display: grid;
+  gap: 14px;
+  margin: 0 0 22px;
+  padding: clamp(18px, 3vw, 26px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(145deg, #f5f1e8, #ebe5d9);
+}
+.topic-visual-label {
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.topic-visual h3 { margin: 0; font-size: 1.2rem; }
+.topic-visual-list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.topic-visual-list li { display: grid; grid-template-columns: 28px minmax(0, 1fr); align-items: center; gap: 10px; }
+.topic-visual-list li > span:first-child {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 50%;
+  background: #fffefa;
+  color: var(--accent, #706044);
+  font-size: .75rem;
+  font-weight: 750;
 }

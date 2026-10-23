@@ -14,8 +14,8 @@
       "cta.call": "Call 01516 / 7969682",
       "cta.whatsapp": "Request via WhatsApp",
       "cta.mail": "Request by email",
-      "trust.responseTime": "Response",
-      "trust.response": "usually within 48 hours",
+      "trust.responseTime": "Clear arrangements",
+      "trust.response": "after reviewing your request",
       "trust.pax": "wardrobe systems and interiors",
       "trust.region": "short routes around north-west Berlin",
       "hero.small": "Appointments by arrangement · Schönwalde-Glien OT Grünefeld",
@@ -45,20 +45,20 @@
       "taskrabbit.eyebrow": "Also on Taskrabbit",
       "taskrabbit.title": "You can also book me through Taskrabbit.",
       "taskrabbit.text": "There you can view my profile, reviews and Taskrabbit's booking process. Please note that prices are usually higher because of the platform fees. If you contact me directly by phone, WhatsApp or email, I will provide an individual price estimate.",
-      "taskrabbit.fact1": "70 tasks completed",
+      "taskrabbit.fact1": "78 tasks completed",
       "taskrabbit.fact2": "Furniture assembly",
       "taskrabbit.fact3": "Wall mounting",
       "taskrabbit.profile": "Taskrabbit profile",
       "taskrabbit.reviews": "25 reviews",
       "taskrabbit.since": "Tasker since 2021",
-      "taskrabbit.tasks": "70 tasks completed",
+      "taskrabbit.tasks": "78 tasks completed",
       "taskrabbit.card": "View profile & reviews",
       "reviews.eyebrow": "Customer reviews",
       "reviews.title": "What customers say about my work",
       "reviews.text": "Short excerpts from reviews on my public Taskrabbit profile.",
       "reviews.lisa": "Wall mounting · August 2026",
-      "reviews.annette": "Home repairs · August 2026",
-      "reviews.julia": "Home repairs · October 2021",
+      "reviews.annette": "Taskrabbit · August 2026",
+      "reviews.julia": "Taskrabbit · October 2021",
       "reviews.source": "View all reviews on Taskrabbit",
       "scope.eyebrow": "Clear service boundaries",
       "scope.title": "So you know right away whether your job is a good fit.",
@@ -185,8 +185,9 @@
   let taskrabbitStats = {
     rating: 5,
     reviewCount: 25,
-    taskCount: 70,
-    updatedAt: "2026-10-12T13:11:09.348Z"
+    taskCount: 78,
+    updatedAt: "2026-10-23T16:38:11.196Z",
+    checkedAt: "2026-10-23T16:38:11.196Z"
   };
   const googleStats = { rating: 5, reviewCount: 1 };
 
@@ -209,12 +210,12 @@
     const taskLabel = language === "en"
       ? `${taskrabbitStats.taskCount} tasks completed`
       : `${taskrabbitStats.taskCount} erledigte Tasks`;
-    const updatedDate = new Intl.DateTimeFormat(language === "en" ? "en-GB" : "de-DE", {
+    const checkedDate = new Intl.DateTimeFormat(language === "en" ? "en-GB" : "de-DE", {
       day: "2-digit",
       month: "2-digit",
       year: "numeric"
-    }).format(new Date(taskrabbitStats.updatedAt));
-    const updatedLabel = language === "en" ? `Updated: ${updatedDate}` : `Stand: ${updatedDate}`;
+    }).format(new Date(taskrabbitStats.checkedAt || taskrabbitStats.updatedAt));
+    const updatedLabel = language === "en" ? `Checked: ${checkedDate}` : `Zuletzt geprüft: ${checkedDate}`;
     const accessibleLabel = language === "en"
       ? `Overall rating ${rating} out of 5 stars from ${taskrabbitStats.reviewCount} reviews`
       : `Gesamtbewertung ${rating} von 5 Sternen aus ${taskrabbitStats.reviewCount} Bewertungen`;
@@ -464,6 +465,7 @@
       const reviewCount = Number(stats.reviewCount);
       const taskCount = Number(stats.taskCount);
       const updatedAt = typeof stats.updatedAt === "string" ? stats.updatedAt : "";
+      const checkedAt = typeof stats.checkedAt === "string" ? stats.checkedAt : updatedAt;
       if (
         !Number.isFinite(rating) ||
         rating < 0 ||
@@ -472,12 +474,13 @@
         reviewCount < 0 ||
         !Number.isInteger(taskCount) ||
         taskCount < 0 ||
-        Number.isNaN(Date.parse(updatedAt))
+        Number.isNaN(Date.parse(updatedAt)) ||
+        Number.isNaN(Date.parse(checkedAt))
       ) {
         throw new Error("Invalid Taskrabbit statistics");
       }
 
-      taskrabbitStats = { rating, reviewCount, taskCount, updatedAt };
+      taskrabbitStats = { rating, reviewCount, taskCount, updatedAt, checkedAt };
       renderTaskrabbitStats(document.documentElement.dataset.lang || "de");
     })
     .catch(() => {
