@@ -2567,7 +2567,9 @@ p { max-width: 72ch; }
 
 /* Eigenständige, markengerechte Infografiken statt desselben Symbolfotos auf mehreren Seiten. */
 .location-quick-card > .flow-visual,
-.location-quick-card > .request-visual {
+.location-quick-card > .request-visual,
+.location-quick-card > .request-choice-visual,
+.location-quick-card > .area-visual {
   margin: -24px calc(-1 * clamp(20px, 2.4vw, 30px)) 20px;
   border-radius: var(--radius) var(--radius) 0 0;
   overflow: hidden;
@@ -2760,9 +2762,46 @@ p { max-width: 72ch; }
   font-size: 0.7rem;
 }
 
+/* Einsatzgebiet: erklärt den PLZ-Prüfer, ohne eine Karte oder ein fremdes Symbolfoto vorzutäuschen. */
+.area-visual {
+  padding: clamp(20px, 2.5vw, 28px);
+  background: radial-gradient(circle at 95% 7%, rgba(146, 118, 74, 0.17), transparent 30%), linear-gradient(145deg, #eee8dc, #e4dfd3);
+}
+.area-visual-top { display: flex; align-items: center; gap: 13px; padding-bottom: 18px; border-bottom: 1px solid rgba(48, 44, 39, 0.12); }
+.area-visual-mark { display: grid; width: 48px; height: 48px; flex: 0 0 48px; place-items: center; border-radius: 14px; color: #765e35; background: rgba(255, 254, 250, 0.76); border: 1px solid rgba(146, 118, 74, 0.32); font-size: 0.82rem; font-weight: 850; letter-spacing: 0.04em; }
+.area-visual-top > div { display: grid; gap: 3px; }
+.area-visual-top .card-kicker { margin: 0; }
+.area-visual-top strong { font-size: 1.05rem; }
+.area-visual-steps { display: grid; gap: 14px; margin: 19px 0 0; padding: 0; list-style: none; }
+.area-visual-steps li { display: flex; align-items: center; gap: 12px; }
+.area-visual-steps li > span { display: grid; width: 34px; height: 34px; flex: 0 0 34px; place-items: center; border: 1px solid rgba(146, 118, 74, 0.3); border-radius: 50%; color: #765e35; background: #f8f5ee; font-size: 0.68rem; font-weight: 800; }
+.area-visual-steps li > div { display: grid; gap: 2px; }
+.area-visual-steps strong { font-size: 0.9rem; }
+.area-visual-steps small { color: var(--muted); font-size: 0.8rem; }
+.area-visual-note { display: flex; align-items: center; gap: 8px; margin: 17px 0 0; padding-top: 13px; border-top: 1px solid rgba(48, 44, 39, 0.1); color: #56624d; font-size: 0.78rem; font-weight: 700; }
+.area-visual-note span { display: grid; width: 19px; height: 19px; place-items: center; border-radius: 50%; color: #fff; background: #738064; font-size: 0.66rem; }
+
+/* Preis & Anfrage: echte Versandwege statt einer statischen Formular-Miniatur. */
+.request-choice-visual { padding: clamp(19px, 2.4vw, 27px); background: linear-gradient(145deg, #eee9df 0%, #e8e5db 100%); }
+.request-choice-heading { display: grid; gap: 4px; padding-bottom: 16px; border-bottom: 1px solid rgba(48, 44, 39, 0.12); }
+.request-choice-heading .card-kicker { margin: 0; }
+.request-choice-heading > strong { color: var(--ink); font-size: 1.12rem; }
+.request-choice-options { display: grid; gap: 10px; margin-top: 16px; }
+.request-choice-option { display: grid; grid-template-columns: 42px minmax(0, 1fr); align-items: center; gap: 11px; padding: 12px; border: 1px solid rgba(48, 44, 39, 0.1); border-radius: 12px; background: rgba(255, 254, 250, 0.85); }
+.request-choice-icon { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 12px; background: #f1efe8; }
+.request-choice-icon img { width: 25px; height: 25px; filter: invert(39%) sepia(14%) saturate(880%) hue-rotate(67deg) brightness(91%) contrast(88%); }
+.request-choice-email .request-choice-icon { color: #765e35; background: #f1eadb; }
+.request-choice-icon svg { width: 23px; height: 23px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.request-choice-option > span:nth-child(2) { display: grid; gap: 3px; min-width: 0; }
+.request-choice-option strong { font-size: 0.92rem; }
+.request-choice-option small { color: var(--muted); font-size: 0.76rem; line-height: 1.35; }
+.request-choice-note { margin: 13px 0 0; color: var(--muted); font-size: 0.76rem; }
+
 @media (max-width: 720px) {
   .location-quick-card > .flow-visual,
-  .location-quick-card > .request-visual {
+  .location-quick-card > .request-visual,
+  .location-quick-card > .request-choice-visual,
+  .location-quick-card > .area-visual {
     margin-right: calc(-1 * clamp(20px, 2.4vw, 30px));
     margin-left: calc(-1 * clamp(20px, 2.4vw, 30px));
   }
