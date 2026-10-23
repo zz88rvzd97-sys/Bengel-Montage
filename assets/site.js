@@ -188,6 +188,7 @@
     taskCount: 70,
     updatedAt: "2026-10-12T13:11:09.348Z"
   };
+  const googleStats = { rating: 5, reviewCount: 1 };
 
   elements.forEach((element) => {
     original[element.dataset.i18n] = element.innerHTML;
@@ -217,6 +218,27 @@
     const accessibleLabel = language === "en"
       ? `Overall rating ${rating} out of 5 stars from ${taskrabbitStats.reviewCount} reviews`
       : `Gesamtbewertung ${rating} von 5 Sternen aus ${taskrabbitStats.reviewCount} Bewertungen`;
+
+    const totalReviewCount = taskrabbitStats.reviewCount + googleStats.reviewCount;
+    const combinedRating = totalReviewCount
+      ? ((taskrabbitStats.rating * taskrabbitStats.reviewCount) + (googleStats.rating * googleStats.reviewCount)) / totalReviewCount
+      : 0;
+    const combinedReviewLabel = language === "en"
+      ? `${totalReviewCount} reviews in total`
+      : `${totalReviewCount} Bewertungen insgesamt`;
+    const googleReviewLabel = language === "en"
+      ? `${googleStats.reviewCount} Google review${googleStats.reviewCount === 1 ? "" : "s"}`
+      : `${googleStats.reviewCount} Rezension${googleStats.reviewCount === 1 ? "" : "en"}`;
+
+    document.querySelectorAll("[data-combined-rating]").forEach((element) => {
+      element.textContent = formatRating(combinedRating, language);
+    });
+    document.querySelectorAll("[data-combined-reviews]").forEach((element) => {
+      element.textContent = combinedReviewLabel;
+    });
+    document.querySelectorAll("[data-google-reviews]").forEach((element) => {
+      element.textContent = googleReviewLabel;
+    });
 
     document.querySelectorAll("[data-taskrabbit-rating]").forEach((element) => {
       element.textContent = rating;
