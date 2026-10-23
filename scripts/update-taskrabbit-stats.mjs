@@ -50,11 +50,9 @@ const hasChanged =
   Number(current.taskCount) !== taskCount;
 const now = new Date();
 const lastChecked = Date.parse(current.checkedAt ?? current.updatedAt ?? "");
-const keepaliveDue =
-  !Number.isFinite(lastChecked) ||
-  now.getTime() - lastChecked >= 30 * 24 * 60 * 60 * 1000;
+const checkIsRecent = Number.isFinite(lastChecked) && now.getTime() - lastChecked < 24 * 60 * 60 * 1000;
 
-if (!hasChanged && !keepaliveDue) {
+if (!hasChanged && checkIsRecent) {
   console.log("Taskrabbit statistics are unchanged.");
   process.exit(0);
 }
