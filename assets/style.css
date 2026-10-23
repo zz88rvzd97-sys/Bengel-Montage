@@ -2767,3 +2767,29 @@ p { max-width: 72ch; }
     margin-left: calc(-1 * clamp(20px, 2.4vw, 30px));
   }
 }
+
+/* Auch auf kleinen Displays bleibt die Navigation kompakt und gut lesbar. */
+@media (max-width: 680px) {
+  .site-header { gap: 5px; padding: 7px 15px 9px; }
+  .location-page-nav,
+  .primary-nav {
+    justify-content: flex-start;
+    width: 100%;
+    gap: 2px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #b7a785 transparent;
+    font-size: 12px;
+    white-space: nowrap;
+    -webkit-mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 20px), transparent 100%);
+    mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 20px), transparent 100%);
+  }
+  .location-page-nav a,
+  .primary-nav a { flex: 0 0 auto; padding: 6px 5px; }
+  .location-page-nav::-webkit-scrollbar,
+  .primary-nav::-webkit-scrollbar { height: 3px; }
+  .location-page-nav::-webkit-scrollbar-thumb,
+  .primary-nav::-webkit-scrollbar-thumb { border-radius: 999px; background: #b7a785; }
+}
