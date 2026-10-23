@@ -1633,7 +1633,7 @@ html[data-lang="en"] .legal-english {
 }
 
 .location-hero {
-  padding: clamp(50px, 8vw, 100px) 0;
+  padding: clamp(30px, 5vw, 64px) 0;
   background:
     radial-gradient(circle at 86% 20%, rgba(177, 132, 63, 0.2), transparent 30%),
     linear-gradient(135deg, #fbfaf6 0%, #f2eee3 100%);
@@ -1644,7 +1644,7 @@ html[data-lang="en"] .legal-english {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
   gap: clamp(28px, 5vw, 72px);
-  align-items: center;
+  align-items: start;
 }
 
 .location-hero h1 {
