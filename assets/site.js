@@ -45,13 +45,13 @@
       "taskrabbit.eyebrow": "Also on Taskrabbit",
       "taskrabbit.title": "You can also book me through Taskrabbit.",
       "taskrabbit.text": "There you can view my profile, reviews and Taskrabbit's booking process. Please note that prices are usually higher because of the platform fees. If you contact me directly by phone, WhatsApp or email, I will provide an individual price estimate.",
-      "taskrabbit.fact1": "78 tasks completed",
+      "taskrabbit.fact1": "87 tasks completed",
       "taskrabbit.fact2": "Furniture assembly",
       "taskrabbit.fact3": "Wall mounting",
       "taskrabbit.profile": "Taskrabbit profile",
-      "taskrabbit.reviews": "25 reviews",
+      "taskrabbit.reviews": "26 reviews",
       "taskrabbit.since": "Tasker since 2021",
-      "taskrabbit.tasks": "78 tasks completed",
+      "taskrabbit.tasks": "87 tasks completed",
       "taskrabbit.card": "View profile & reviews",
       "reviews.eyebrow": "Customer reviews",
       "reviews.title": "What customers say about my work",
@@ -184,10 +184,10 @@
   const originalPlaceholders = {};
   let taskrabbitStats = {
     rating: 5,
-    reviewCount: 25,
-    taskCount: 78,
-    updatedAt: "2026-10-23T16:38:11.196Z",
-    checkedAt: "2026-10-23T16:38:11.196Z"
+    reviewCount: 26,
+    taskCount: 87,
+    updatedAt: "2026-11-09T13:55:06.519Z",
+    checkedAt: "2026-11-09T13:55:06.519Z"
   };
   const googleStats = { rating: 5, reviewCount: 1 };
 
